@@ -32,7 +32,7 @@ module.exports = async function getDataForAllMunicipalities() {
             console.error(
               `Could not load data for ${municipality.name} kommune (${municipality.url})`
             );
-            reject(error);
+            resolve(null);
           }
         });
       })
@@ -51,6 +51,7 @@ module.exports = async function getDataForAllMunicipalities() {
         (dataB.statistics.co2.grid.grams ?? 0) +
         (dataB.statistics.co2.grid.renewable ?? 0)
     )
+    .filter(Boolean)
     .map(([municipality, data]) => {
       return html`<tr>
         <td><a href="${municipality.url}">${municipality.name}</a></td>
