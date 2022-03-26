@@ -117,7 +117,7 @@ module.exports = [
   {
     id: "1160",
     name: "Vindafjord",
-    url: "https://vindafjord.kommune.no",
+    url: "https://www.vindafjord.kommune.no",
   },
   {
     id: "1505",
@@ -142,7 +142,7 @@ module.exports = [
   {
     id: "1514",
     name: "Sande",
-    url: "https://sande.kommune.no",
+    url: "https://sande-mr.kommune.no",
   },
   {
     id: "1515",
@@ -167,12 +167,12 @@ module.exports = [
   {
     id: "1525",
     name: "Stranda",
-    url: "https://stranda.kommune.no",
+    url: "https://www.stranda.kommune.no",
   },
   {
     id: "1528",
     name: "Sykkylven",
-    url: "https://sykkylven.kommune.no",
+    url: "https://www.sykkylven.kommune.no",
   },
   {
     id: "1531",
@@ -282,7 +282,7 @@ module.exports = [
   {
     id: "1816",
     name: "Vevelstad",
-    url: "https://vevelstad.kommune.no",
+    url: "http://www.vevelstad.kommune.no",
   },
   {
     id: "1818",
@@ -327,7 +327,7 @@ module.exports = [
   {
     id: "1832",
     name: "Hemnes",
-    url: "https://hemnes.kommune.no",
+    url: "https://www.hemnes.kommune.no",
   },
   {
     id: "1833",
@@ -347,7 +347,7 @@ module.exports = [
   {
     id: "1836",
     name: "Rødøy",
-    url: "http://rodoy.kommune.no",
+    url: "http://www.rodoy.kommune.no",
   },
   {
     id: "1837",
@@ -467,12 +467,12 @@ module.exports = [
   {
     id: "3003",
     name: "Sarpsborg",
-    url: "https://sarpsborg.kommune.no",
+    url: "https://www.sarpsborg.com",
   },
   {
     id: "3004",
     name: "Fredrikstad",
-    url: "https://fredrikstad.kommune.no",
+    url: "https://www.fredrikstad.kommune.no",
   },
   {
     id: "3005",
@@ -492,7 +492,7 @@ module.exports = [
   {
     id: "3011",
     name: "Hvaler",
-    url: "https://hvaler.kommune.no",
+    url: "https://www.hvaler.kommune.no",
   },
   {
     id: "3012",
@@ -527,7 +527,7 @@ module.exports = [
   {
     id: "3018",
     name: "Våler",
-    url: "https://valer.kommune.no",
+    url: "https://valer-of.kommune.no",
   },
   {
     id: "3019",
@@ -537,7 +537,7 @@ module.exports = [
   {
     id: "3020",
     name: "Nordre Follo",
-    url: "https://nordre-follo.kommune.no",
+    url: "https://nordrefollo.kommune.no",
   },
   {
     id: "3021",
@@ -597,7 +597,7 @@ module.exports = [
   {
     id: "3032",
     name: "Gjerdrum",
-    url: "https://gjerdrum.kommune.no",
+    url: "https://www.gjerdrum.kommune.no",
   },
   {
     id: "3033",
@@ -607,22 +607,22 @@ module.exports = [
   {
     id: "3034",
     name: "Nes",
-    url: "https://nes.kommune.no",
+    url: "https://www.nes.kommune.no",
   },
   {
     id: "3035",
     name: "Eidsvoll",
-    url: "https://eidsvoll.kommune.no",
+    url: "https://www.eidsvoll.kommune.no",
   },
   {
     id: "3036",
     name: "Nannestad",
-    url: "https://nannestad.kommune.no",
+    url: "https://www.nannestad.kommune.no",
   },
   {
     id: "3037",
     name: "Hurdal",
-    url: "https://hurdal.kommune.no",
+    url: "https://www.hurdal.kommune.no",
   },
   {
     id: "3038",
@@ -732,7 +732,7 @@ module.exports = [
   {
     id: "3411",
     name: "Ringsaker",
-    url: "https://ringsaker.kommune.no",
+    url: "https://www.ringsaker.kommune.no",
   },
   {
     id: "3412",
@@ -767,12 +767,12 @@ module.exports = [
   {
     id: "3418",
     name: "Åsnes",
-    url: "https://asnes.kommune.no",
+    url: "https://www.asnes.kommune.no",
   },
   {
     id: "3419",
     name: "Våler",
-    url: "https://valer.kommune.no",
+    url: "https://vaaler-he.kommune.no",
   },
   {
     id: "3420",
@@ -842,7 +842,7 @@ module.exports = [
   {
     id: "3433",
     name: "Skjåk",
-    url: "https://skjak.kommune.no",
+    url: "https://skjaak.kommune.no",
   },
   {
     id: "3434",
@@ -892,7 +892,7 @@ module.exports = [
   {
     id: "3443",
     name: "Vestre Toten",
-    url: "https://vestre-toten.kommune.no",
+    url: "https://www.vestre-toten.kommune.no/",
   },
   {
     id: "3446",
@@ -967,7 +967,7 @@ module.exports = [
   {
     id: "3806",
     name: "Porsgrunn",
-    url: "https://porsgrunn.kommune.no",
+    url: "https://www.porsgrunn.kommune.no",
   },
   {
     id: "3807",
@@ -992,7 +992,7 @@ module.exports = [
   {
     id: "3813",
     name: "Bamble",
-    url: "https://bamble.kommune.no",
+    url: "https://www.bamble.kommune.no",
   },
   {
     id: "3814",
@@ -1072,7 +1072,7 @@ module.exports = [
   {
     id: "4204",
     name: "Kristiansand",
-    url: "https://kristiansand.kommune.no",
+    url: "https://www.kristiansand.kommune.no",
   },
   {
     id: "4205",
@@ -1182,7 +1182,7 @@ module.exports = [
   {
     id: "4601",
     name: "Bergen",
-    url: "https://bergen.kommune.no",
+    url: "https://www.bergen.kommune.no",
   },
   {
     id: "4602",
@@ -1192,7 +1192,7 @@ module.exports = [
   {
     id: "4611",
     name: "Etne",
-    url: "https://etne.kommune.no",
+    url: "https://www.etne.kommune.no",
   },
   {
     id: "4612",
@@ -1237,7 +1237,7 @@ module.exports = [
   {
     id: "4620",
     name: "Ulvik",
-    url: "https://ulvik.kommune.no",
+    url: "https://www.ulvik.kommune.no",
   },
   {
     id: "4621",
@@ -1247,7 +1247,7 @@ module.exports = [
   {
     id: "4622",
     name: "Kvam",
-    url: "https://kvam.kommune.no",
+    url: "http://www.kvam.kommune.no",
   },
   {
     id: "4623",
@@ -1412,7 +1412,7 @@ module.exports = [
   {
     id: "5014",
     name: "Frøya",
-    url: "https://froya.kommune.no",
+    url: "https://www.froya.kommune.no",
   },
   {
     id: "5020",
@@ -1537,7 +1537,7 @@ module.exports = [
   {
     id: "5052",
     name: "Leka",
-    url: "https://leka.kommune.no",
+    url: "https://www.leka.kommune.no",
   },
   {
     id: "5053",
@@ -1547,7 +1547,7 @@ module.exports = [
   {
     id: "5054",
     name: "Indre Fosen",
-    url: "https://indre-fosen.kommune.no",
+    url: "https://www.indrefosen.kommune.no",
   },
   {
     id: "5055",
@@ -1592,7 +1592,7 @@ module.exports = [
   {
     id: "5402",
     name: "Harstad - Hárstták",
-    url: "https://harstad.kommune.no",
+    url: "https://www.harstad.kommune.no",
   },
   {
     id: "5403",
