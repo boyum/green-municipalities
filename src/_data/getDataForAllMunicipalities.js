@@ -38,6 +38,7 @@ module.exports = async function getDataForAllMunicipalities() {
       })
     )
   )
+    .filter(Boolean)
     .filter(([m, data]) => {
       if (!data.statistics) {
         console.log(m.name + " is missing statistics", data);

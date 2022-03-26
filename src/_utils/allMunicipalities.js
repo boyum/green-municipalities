@@ -367,7 +367,7 @@ module.exports = [
   {
     id: "1840",
     name: "Saltdal",
-    url: "https://saltdal.kommune.no",
+    url: "https://www.saltdal.kommune.no",
   },
   {
     id: "1841",
