@@ -53,8 +53,9 @@ module.exports = async function getDataForAllMunicipalities() {
         (dataB.statistics.co2.grid.renewable ?? 0)
     )
     .filter(Boolean)
-    .map(([municipality, data]) => {
+    .map(([municipality, data], index) => {
       return html`<tr>
+        <td>${index + 1}</td>
         <td><a href="${municipality.url}">${municipality.name}</a></td>
         <td>
           ${(
