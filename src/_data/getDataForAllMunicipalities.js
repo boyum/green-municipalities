@@ -1,6 +1,6 @@
 // @ts-check
 
-const promiseRetry = require("promise-retry");
+// const promiseRetry = require("promise-retry");
 const allMunicipalities = require("../_utils/allMunicipalities");
 const getCarbonDataForWebsite = require("../_utils/getCarbonDataForWebsite");
 
@@ -12,20 +12,22 @@ module.exports = async function getDataForAllMunicipalities() {
       allMunicipalities.map((municipality) => {
         return new Promise(async (resolve, reject) => {
           try {
-            resolve(
-              await promiseRetry(async (retry, number) => {
-                try {
-                  const data = await getCarbonDataForWebsite(municipality.url);
-                  resolve([municipality, data]);
-                } catch (err) {
-                  if (err.code === "ETIMEDOUT") {
-                    retry(err);
-                  }
+            const data = await getCarbonDataForWebsite(municipality.url);
+            resolve([municipality, data]);
+            // resolve(
+            //   await promiseRetry(async (retry, number) => {
+            //     try {
+            //       const data = await getCarbonDataForWebsite(municipality.url);
+            //       resolve([municipality, data]);
+            //     } catch (err) {
+            //       if (err.code === "ETIMEDOUT") {
+            //         retry(err);
+            //       }
 
-                  throw err;
-                }
-              })
-            );
+            //       throw err;
+            //     }
+            //   })
+            // );
           } catch (error) {
             console.error(
               `Could not load data for ${municipality.name} kommune (${municipality.url})`
@@ -38,7 +40,7 @@ module.exports = async function getDataForAllMunicipalities() {
   )
     .filter(([m, data]) => {
       if (!data.statistics) {
-        console.log(m.name + " is missing statistics", data)
+        console.log(m.name + " is missing statistics", data);
       }
       return data.statistics;
     })
