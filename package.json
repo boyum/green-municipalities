@@ -1,0 +1,29 @@
+{
+  "name": "green-municipalities",
+  "version": "1.0.0",
+  "description": "A website that daily goes through Norway's municipalities and",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boyum/green-municipalities.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boyum/green-municipalities/issues"
+  },
+  "homepage": "https://github.com/boyum/green-municipalities#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7",
+    "promise-retry": "^2.0.1"
+  }
+}
