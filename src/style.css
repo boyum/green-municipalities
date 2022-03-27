@@ -3,3 +3,7 @@
   max-width: 62.5rem;
   width: calc(100% - 2rem);
 }
+
+.municipality-table {
+  overflow-x: auto;
+}

@@ -11,11 +11,33 @@
   <body>
     <div class="container">
       <h1>Green municipalities</h1>
+
       <p>
         The Green municipalities project aims to show the importance of
         performance in websites by showing how a website's size in kilobytes and
         megabytes affect its carbon footprint.
       </p>
+
+      <p>
+        The numbers on this page are calculated by
+        <a href="https://websitecarbon.com/">Website Carbon</a>'s
+        <a href="https://api.websitecarbon.com/">API</a>. As can be seen below,
+        each page view does not emit very many grams of CO₂, however these
+        websites only get a tiny portion of the page views of the world, so it
+        definitely adds up.
+      </p>
+
+      <p>
+        Norwegian municipalities have been chosen because we think public
+        services should be role models, and because there are more than 300 of
+        them which are highly similar in contents. Do you see your website on
+        the list and you want to improve? For now, please reach out to us by
+        creating an
+        <a href="https://github.com/boyum/green-municipalities/issues/new"
+          >issue on GitHub</a
+        >, either in English or Norwegian.
+      </p>
+
       <p>
         We can optimize images by scaling them down to just as big as we need
         them, and there are many techniques to make a website's code base
@@ -24,17 +46,22 @@
           >carbon dioxide equivalents</a
         >
         are emitted by opening each of the Norwegian municipalities' websites,
-        and we offer tips and tricks for decreasing the emissions each visitor
-        produces.
+        and we want to offer tips and tricks for decreasing the emissions each
+        visitor produces.
       </p>
 
-      <div>
+      <p>
+        This project is still in development and can be followed on
+        <a href="https://github.com/boyum/green-municipalities">GitHub</a>.
+        Contributions are welcome.
+      </p>
+
+      <div class="municipality-table">
         <table>
           <tr>
             <th>Rank</th>
             <th>Name</th>
-            <th>Grams of CO₂ per page view</th>
-            <th>Is considered green</th>
+            <th>Grams of CO₂ used per page view (renewable / total)</th>
           </tr>
           {{getDataForAllMunicipalities}}
         </table>

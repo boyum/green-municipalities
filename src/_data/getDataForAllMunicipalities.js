@@ -47,10 +47,8 @@ module.exports = async function getDataForAllMunicipalities() {
     })
     .sort(
       ([, dataA], [, dataB]) =>
-        (dataA.statistics.co2.grid.grams ?? 0) +
-        (dataA.statistics.co2.grid.renewable ?? 0) -
-        (dataB.statistics.co2.grid.grams ?? 0) +
-        (dataB.statistics.co2.grid.renewable ?? 0)
+        (dataA.statistics.co2.grid.grams ?? 0) -
+        (dataB.statistics.co2.grid.grams ?? 0)
     )
     .filter(Boolean)
     .map(([municipality, data], index) => {
@@ -58,12 +56,9 @@ module.exports = async function getDataForAllMunicipalities() {
         <td>${index + 1}</td>
         <td><a href="${municipality.url}">${municipality.name}</a></td>
         <td>
-          ${(
-            (data.statistics.co2.grid.grams ?? 0) +
-            (data.statistics.co2.grid.renewable ?? 0)
-          ).toFixed(2)}g
+          ${(data.statistics.co2.renewable.grams ?? 0).toFixed(2)}g /
+          ${(data.statistics.co2.grid.grams ?? 0).toFixed(2)}g
         </td>
-        <td>${data.statistics.green ? "Yes" : "No"}</td>
       </tr>`;
     });
 };
