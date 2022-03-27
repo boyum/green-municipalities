@@ -31,12 +31,17 @@
         <a href="https://websitecarbon.com/">Website Carbon</a>'s
         <a href="https://api.websitecarbon.com/">API</a>. One can read more
         about how they calculate emissions on their website, but in short, they
-        find the size of the website in kilobytes and megabytes, and calculate
+        find the size of the frontpage in kilobytes and megabytes, and calculate
         how much power is spent when that amount of bytes is downloaded to the
         visitor's computer. As can be seen below, each page view does not emit
         very many grams of CO₂, however these websites only get a tiny portion
         of the page views of the world, so it definitely adds up.
       </p>
+      <blockquote>
+        The average web page tested produces 1.76 grams CO₂ per page view. For a
+        website with 10,000 monthly page views, that's 211 kg CO₂ per year.
+      </blockquote>
+      <cite>— Website Carbon</cite>
 
       <h2>Why?</h2>
       <p>
@@ -67,12 +72,15 @@
         Contributions are welcome.
       </p>
 
+      <h2>Stats</h2>
       <div class="municipality-table">
         <table>
           <tr>
             <th>Rank</th>
             <th>Name</th>
             <th>Grams of CO₂ used per page view (renewable / total)</th>
+            <th>Compared to the average of 1.76g per page view</th>
+            <th>Page size</th>
           </tr>
           {{getDataForAllMunicipalities}}
         </table>

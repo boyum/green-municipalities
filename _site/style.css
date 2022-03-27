@@ -1,9 +1,25 @@
+a {
+  text-decoration: underline;
+}
+
 .container {
-  margin: 0 auto;
-  max-width: 62.5rem;
-  width: calc(100% - 2rem);
+  margin-top: 2rem;
 }
 
 .municipality-table {
   overflow-x: auto;
+}
+
+h1 {
+  --typography-spacing-vertical: 2rem;
+}
+
+h2 {
+  --typography-spacing-vertical: 1rem;
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 46.875rem;
+  }
 }

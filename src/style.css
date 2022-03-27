@@ -17,3 +17,9 @@ h1 {
 h2 {
   --typography-spacing-vertical: 1rem;
 }
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 46.875rem;
+  }
+}
