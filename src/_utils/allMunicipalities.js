@@ -57,7 +57,7 @@ module.exports = [
   {
     id: "1122",
     name: "Gjesdal",
-    url: "https://gjesdal.kommune.no",
+    url: "https://www.gjesdal.kommune.no",
   },
   {
     id: "1124",
