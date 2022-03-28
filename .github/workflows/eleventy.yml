@@ -8,9 +8,6 @@ jobs:
       - uses: actions/checkout@master
       
       - uses: bahmutov/npm-install@v1
-      
-      - name: Build
-        uses: TartanLlama/actions-eleventy@master
         
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -1247,7 +1247,7 @@ module.exports = [
   {
     id: "4622",
     name: "Kvam",
-    url: "http://www.kvam.kommune.no",
+    url: "https://www.kvam.kommune.no",
   },
   {
     id: "4623",
