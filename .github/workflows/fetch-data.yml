@@ -1,0 +1,35 @@
+name: Fetch Data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  fetch_data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@master
+        with:
+          ref: main
+
+      - uses: bahmutov/npm-install@v1
+
+      - name: Build
+        run: npm run fetch-data
+
+      - name: Update Data
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated Data
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: _site
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
