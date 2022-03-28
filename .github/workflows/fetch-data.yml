@@ -1,0 +1,25 @@
+name: Fetch Data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-18.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@master
+        with:
+          ref: main
+
+      - uses: bahmutov/npm-install@v1
+
+      - name: Build
+        run: npm run fetch-data
+
+      - name: Update Data
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated Data

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fetch-data": "node src/_data/storeDataForAllMunicipalities.js"
   },
   "repository": {
     "type": "git",
