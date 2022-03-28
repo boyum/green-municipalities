@@ -1,5 +1,11 @@
 name: Eleventy Build
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   build_deploy:
@@ -8,7 +14,10 @@ jobs:
       - uses: actions/checkout@master
       
       - uses: bahmutov/npm-install@v1
-        
+
+      - name: Build
+        run: npm run build
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
