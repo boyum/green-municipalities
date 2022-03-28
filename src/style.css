@@ -1,3 +1,11 @@
+/**
+ * {1} Override primary color because the default does not provide
+ *     high enough contrast against a white background.
+ */
+:root {
+  --primary: #08769b; /* {1} */
+}
+
 a {
   text-decoration: underline;
 }
