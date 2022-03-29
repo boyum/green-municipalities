@@ -28,8 +28,5 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: _site
-          publish_branch: gh-pages
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST  ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
