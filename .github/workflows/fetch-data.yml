@@ -1,4 +1,4 @@
-name: Fetch Data
+name: Fetch data
 on:
   workflow_dispatch:
   schedule:
@@ -16,16 +16,13 @@ jobs:
 
       - uses: bahmutov/npm-install@v1
 
-      - name: Build
+      - name: Fetch data
         run: npm run fetch-data
 
-      - name: Update Data
+      - name: Update data
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Updated Data
-
-      - name: Build
-        run: npm run build
+          commit_message: fetch daily carbon data
 
       - name: Deploy
         run: |
