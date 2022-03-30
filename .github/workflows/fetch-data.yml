@@ -1,0 +1,29 @@
+name: Fetch data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  fetch_data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@master
+        with:
+          ref: main
+
+      - uses: bahmutov/npm-install@v1
+
+      - name: Fetch data
+        run: npm run fetch-data
+
+      - name: Update data
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: fetch daily carbon data
+
+      - name: Deploy
+        run: |
+          curl -X POST  ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
