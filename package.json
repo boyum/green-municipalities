@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/boyum/green-municipalities#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.1"
   },
   "dependencies": {
     "node-fetch": "^2.6.7",
