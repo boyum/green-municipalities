@@ -1,7 +1,5 @@
 // @ts-check
 
-const fetch = require("node-fetch").default;
-
 /**
  *
  * @param {string} url
@@ -23,5 +21,6 @@ const fetch = require("node-fetch").default;
  * @see https://api.websitecarbon.com/
  */
 module.exports = async function getCarbonDataForWebsite(url) {
+  const fetch = (await import("node-fetch")).default;
   return (await fetch(`https://api.websitecarbon.com/site?url=${url}`)).json();
 };
