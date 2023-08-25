@@ -1,7 +1,7 @@
 {
   "name": "green-municipalities",
   "version": "1.0.0",
-  "description": "A website that daily goes through Norway's municipalities and",
+  "description": "A website that daily goes through Norway's municipalities",
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
