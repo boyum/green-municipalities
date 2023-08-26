@@ -1431,7 +1431,7 @@ module.exports = [
   },
   {
     id: "5025",
-    name: "Røros",
+    name: "Rossen - Røros",
     url: "https://roros.kommune.no",
   },
   {
@@ -1631,7 +1631,7 @@ module.exports = [
   },
   {
     id: "5414",
-    name: "Gratangen",
+    name: "Rivttága - Gratangen",
     url: "https://gratangen.kommune.no",
   },
   {
