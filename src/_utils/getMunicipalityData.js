@@ -1,3 +1,1 @@
-module.exports = function getMunicipalityData (nameOfMunicipality) {
-  
-}
+module.exports = function getMunicipalityData(nameOfMunicipality) {};
