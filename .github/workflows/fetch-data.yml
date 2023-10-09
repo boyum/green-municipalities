@@ -20,7 +20,7 @@ jobs:
         run: npm run fetch-data
 
       - name: Update data
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: fetch daily carbon data
 
