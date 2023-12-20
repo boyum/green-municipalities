@@ -1,16 +1,14 @@
 // @ts-check
-
-const allMunicipalities = require("./allMunicipalities");
-const getCarbonDataForWebsite = require("./getCarbonDataForWebsite");
-
-const fs = require("fs");
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import allMunicipalities from "./allMunicipalities";
+import getCarbonDataForWebsite from "./getCarbonDataForWebsite";
 
 const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
 
 const fetchDataForAllMunicipalities = async () => {
   const newData = await Promise.all(
     allMunicipalities.map(municipality => {
-      return new Promise(async (resolve, reject) => {
+      return new Promise(async resolve => {
         try {
           const data = await getCarbonDataForWebsite(municipality.url);
           resolve({ ...data, ...municipality });
@@ -23,6 +21,7 @@ const fetchDataForAllMunicipalities = async () => {
       });
     }),
   );
+
   return newData.filter(Boolean).filter(data => {
     if (!data.statistics) {
       console.warn(
@@ -36,6 +35,7 @@ const fetchDataForAllMunicipalities = async () => {
 /**
  * Merge data so that the latest version always contains as much data as possible.
  * If a municipality has no data, it will be fallback to the most recent previous data.
+ *
  * @param newData
  * @param existingData
  * @returns {unknown[]}
@@ -80,8 +80,8 @@ const run = async () => {
 
   const path = getPath(today);
 
-  const previousData = fs.existsSync(getPath(yesterday))
-    ? JSON.parse(fs.readFileSync(getPath(yesterday)).toString("utf-8"))
+  const previousData = existsSync(getPath(yesterday))
+    ? JSON.parse(readFileSync(getPath(yesterday)).toString("utf-8"))
     : [];
   const newData = await fetchDataForAllMunicipalities();
   if (newData?.length === 1) {
@@ -96,7 +96,7 @@ const run = async () => {
   );
 
   const data = [{ date: new Date(), data: sortedData }, ...previousData];
-  fs.writeFileSync(path, JSON.stringify(data, null));
+  writeFileSync(path, JSON.stringify(data, null));
 };
 
 run();

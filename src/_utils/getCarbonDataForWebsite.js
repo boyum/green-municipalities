@@ -1,9 +1,7 @@
 // @ts-check
 
 /**
- *
- * @param {string} url
- * @returns {Promise<{
+ * @typedef {{
  *   url: string;
  *   green: boolean | "unknown";
  *   bytes: number;
@@ -16,10 +14,16 @@
  *       litres: number;
  *     }
  *   }
- * }>}
+ * }} CarbonData
+ */
+
+/**
+ *
+ * @param {string} url
+ * @returns {Promise<CarbonData>}
  *
  * @see https://api.websitecarbon.com/
  */
-module.exports = async function getCarbonDataForWebsite(url) {
+export default async function getCarbonDataForWebsite(url) {
   return (await fetch(`https://api.websitecarbon.com/site?url=${url}`)).json();
-};
+}

@@ -11,6 +11,7 @@
     "url": "git+https://github.com/boyum/green-municipalities.git"
   },
   "license": "Apache 2.0",
+  "type": "module",
   "scripts": {
     "build": "eleventy",
     "fetch-data": "node src/_utils/storeDataForAllMunicipalities.js",
@@ -20,11 +21,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prettier": "prettier-config",
-  "dependencies": {
-    "promise-retry": "^2.0.1"
-  },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "3.0.0-alpha.3",
     "prettier": "^3.1.1",
     "prettier-config": "github:boyum/prettier-config"
   }
