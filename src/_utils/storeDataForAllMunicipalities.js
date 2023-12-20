@@ -5,7 +5,7 @@ const getCarbonDataForWebsite = require("./getCarbonDataForWebsite");
 
 const fs = require("fs");
 
-const path = "data.json";
+const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
 
 const fetchDataForAllMunicipalities = async () => {
   const newData = await Promise.all(
@@ -73,22 +73,29 @@ const mergeMunicipalitiesData = (newData, existingData) => {
 };
 
 const run = async () => {
-  const existingData = fs.existsSync(path)
-    ? JSON.parse(fs.readFileSync(path).toString("utf-8"))
+  const today = new Date().toISOString().split("T")[0];
+  const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split("T")[0];
+
+  const path = getPath(today);
+
+  const previousData = fs.existsSync(getPath(yesterday))
+    ? JSON.parse(fs.readFileSync(getPath(yesterday)).toString("utf-8"))
     : [];
   const newData = await fetchDataForAllMunicipalities();
   if (newData?.length === 1) {
     throw new Error("No new data found for any municipality");
   }
 
-  const mergedData = mergeMunicipalitiesData(newData, existingData);
+  const mergedData = mergeMunicipalitiesData(newData, previousData);
   const sortedData = mergedData.sort(
     (dataA, dataB) =>
       (dataA.statistics.co2.grid.grams ?? 0) -
       (dataB.statistics.co2.grid.grams ?? 0),
   );
 
-  const data = [{ date: new Date(), data: sortedData }, ...existingData];
+  const data = [{ date: new Date(), data: sortedData }, ...previousData];
   fs.writeFileSync(path, JSON.stringify(data, null));
 };
 
