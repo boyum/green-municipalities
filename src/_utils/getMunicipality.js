@@ -1,5 +1,4 @@
 // @ts-check
-
 import allMunicipalities from "./allMunicipalities.js";
 
 /**

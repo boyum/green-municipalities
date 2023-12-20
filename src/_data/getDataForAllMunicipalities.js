@@ -1,5 +1,4 @@
 // @ts-check
-
 import { existsSync, readFileSync } from "node:fs";
 
 const today = new Date().toISOString().split("T")[0];

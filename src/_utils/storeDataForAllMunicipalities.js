@@ -1,5 +1,4 @@
 // @ts-check
-
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import allMunicipalities from "./allMunicipalities";
 import getCarbonDataForWebsite from "./getCarbonDataForWebsite";

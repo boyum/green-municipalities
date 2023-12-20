@@ -6,12 +6,12 @@
   "bugs": {
     "url": "https://github.com/boyum/green-municipalities/issues"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boyum/green-municipalities.git"
   },
   "license": "Apache 2.0",
+  "type": "module",
   "scripts": {
     "build": "eleventy",
     "fetch-data": "node src/_utils/storeDataForAllMunicipalities.js",
