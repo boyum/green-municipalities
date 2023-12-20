@@ -2,7 +2,10 @@
 
 const fs = require("fs");
 
-const path = "data.json";
+const today = new Date().toISOString().split("T")[0];
+const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
+
+const path = getPath(today);
 const html = String.raw;
 
 module.exports = async function getDataForAllMunicipalities() {

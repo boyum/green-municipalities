@@ -2,7 +2,6 @@
   "name": "green-municipalities",
   "version": "1.0.0",
   "description": "A website that daily goes through Norway's municipalities",
-  "main": "index.js",
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
@@ -15,8 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/boyum/green-municipalities.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/boyum/green-municipalities/issues"
