@@ -9,22 +9,25 @@ const path = getPath(today);
 const html = String.raw;
 
 module.exports = async function getDataForAllMunicipalities() {
-  const fromFile = fs.existsSync(path)
+  const data = fs.existsSync(path)
     ? JSON.parse(fs.readFileSync(path).toString("utf-8"))
     : [];
 
-  return fromFile[0]?.data.map((data, index) => {
+  return data.map((municipalityData, index) => {
     return html`<tr>
       <td>${index + 1}</td>
-      <td><a href="${data.url}">${data.name}</a></td>
+      <td><a href="${municipalityData.url}">${municipalityData.name}</a></td>
       <td>
-        ${(data.statistics.co2.renewable.grams ?? 0).toFixed(2)}g /
-        ${(data.statistics.co2.grid.grams ?? 0).toFixed(2)}g
+        ${(municipalityData.statistics.co2.renewable.grams ?? 0).toFixed(2)}g /
+        ${(municipalityData.statistics.co2.grid.grams ?? 0).toFixed(2)}g
       </td>
       <td>
-        ${(((data.statistics.co2.grid.grams ?? 0) * 100) / 1.76).toFixed(2)}%
+        ${(
+          ((municipalityData.statistics.co2.grid.grams ?? 0) * 100) /
+          1.76
+        ).toFixed(2)}%
       </td>
-      <td>${(data.bytes / 1_000_000).toFixed(2)}MB</td>
+      <td>${(municipalityData.bytes / 1_000_000).toFixed(2)}MB</td>
     </tr>`;
   });
 };
