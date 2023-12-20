@@ -10,17 +10,18 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: main
 
-      - uses: bahmutov/npm-install@v1
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
 
       - name: Fetch data
         run: npm run fetch-data
 
       - name: Update data
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: fetch daily carbon data
 
