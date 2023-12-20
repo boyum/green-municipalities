@@ -2,30 +2,30 @@
   "name": "green-municipalities",
   "version": "1.0.0",
   "description": "A website that daily goes through Norway's municipalities",
-  "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "fetch-data": "node src/_utils/storeDataForAllMunicipalities.js",
-    "format:fix": "prettier --write .",
-    "format:check": "prettier --check ."
+  "homepage": "https://github.com/boyum/green-municipalities#readme",
+  "bugs": {
+    "url": "https://github.com/boyum/green-municipalities/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boyum/green-municipalities.git"
   },
   "license": "Apache 2.0",
-  "bugs": {
-    "url": "https://github.com/boyum/green-municipalities/issues"
+  "scripts": {
+    "build": "eleventy",
+    "fetch-data": "node src/_utils/storeDataForAllMunicipalities.js",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/boyum/green-municipalities#readme",
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "prettier": "^3.0.2",
-    "prettier-config": "github:boyum/prettier-config"
-  },
+  "prettier": "prettier-config",
   "dependencies": {
     "promise-retry": "^2.0.1"
   },
-  "prettier": "prettier-config"
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "prettier": "^3.1.1",
+    "prettier-config": "github:boyum/prettier-config"
+  }
 }
