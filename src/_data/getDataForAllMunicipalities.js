@@ -1,6 +1,6 @@
 // @ts-check
 
-const fs = require("fs");
+import { existsSync, readFileSync } from "node:fs";
 
 const today = new Date().toISOString().split("T")[0];
 const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
@@ -8,9 +8,9 @@ const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
 const path = getPath(today);
 const html = String.raw;
 
-module.exports = async function getDataForAllMunicipalities() {
-  const data = fs.existsSync(path)
-    ? JSON.parse(fs.readFileSync(path).toString("utf-8"))
+export default async function getDataForAllMunicipalities() {
+  const data = existsSync(path)
+    ? JSON.parse(readFileSync(path).toString("utf-8"))
     : [];
 
   return data.map((municipalityData, index) => {
@@ -30,4 +30,4 @@ module.exports = async function getDataForAllMunicipalities() {
       <td>${(municipalityData.bytes / 1_000_000).toFixed(2)}MB</td>
     </tr>`;
   });
-};
+}

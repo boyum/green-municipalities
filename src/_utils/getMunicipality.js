@@ -1,10 +1,11 @@
-const getAllMunicipalities = require("./allMunicipalities");
+// @ts-check
+
+import allMunicipalities from "./allMunicipalities.js";
 
 /**
- *
  * @param {string} id
- * @returns {{ id: string; name: string; url: string; } | null}
+ * @returns {{ id: string; name: string; url: string; } | undefined}
  */
-module.exports = function getMunicipality(id) {
-  return getAllMunicipalities().find(municipality => municipality.id === id);
-};
+export default function getMunicipality(id) {
+  return allMunicipalities.find(municipality => municipality.id === id);
+}

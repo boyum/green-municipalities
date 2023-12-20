@@ -1,4 +1,7 @@
-module.exports = [
+// @ts-check
+
+/** @type {Array<{id: string; name: string; url: string;}>} */
+const municipalities = [
   {
     id: "301",
     name: "Oslo",
@@ -1780,3 +1783,5 @@ module.exports = [
     url: "https://sor-varanger.kommune.no",
   },
 ];
+
+export default municipalities;
