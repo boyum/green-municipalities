@@ -17,8 +17,7 @@
     "fetch-data": "node src/_utils/storeDataForAllMunicipalities.js",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
-    "start": "eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "eleventy --serve"
   },
   "prettier": "prettier-config",
   "devDependencies": {
