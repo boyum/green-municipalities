@@ -22,7 +22,7 @@
   "prettier": "prettier-config",
   "devDependencies": {
     "@11ty/eleventy": "3.0.0-alpha.4",
-    "prettier": "^3.1.1",
+    "prettier": "^3.2.3",
     "prettier-config": "github:boyum/prettier-config"
   }
 }
