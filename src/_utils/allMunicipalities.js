@@ -780,7 +780,7 @@ const municipalities = [
   {
     id: "3420",
     name: "Elverum",
-    url: "https://elverum.kommune.no",
+    url: "https://www.elverum.kommune.no",
   },
   {
     id: "3421",
