@@ -19,7 +19,10 @@ export default async function getDataForAllMunicipalities() {
       /** @type {{ url: string; name: string; statistics: { co2: { renewable: { grams: number; }; grid: { grams: number; }; }; }; bytes: number; }} */ municipalityData,
       /** @type {number} */ index,
     ) => {
-      const lineGraphHtml = createChartString([1, 2, 3]);
+      const thirtyRandomNumbers = Array.from({ length: 30 }, () =>
+        Math.floor(Math.random() * 10),
+      );
+      const lineGraphHtml = createChartString(thirtyRandomNumbers);
 
       return html`<tr>
         <td>${index + 1}</td>
@@ -69,7 +72,7 @@ function createChart(numbers) {
  */
 function createChartString(numbers) {
   const width = 600;
-  const height = 50;
+  const height = 300;
 
   const normalizedNumbers = normalizeNumberList(numbers, height);
 
@@ -85,8 +88,9 @@ function createChartString(numbers) {
       fill="none"
       width="${width}"
       height="${height}"
+      style="height:auto"
     >
-      <g transform="translate(0, b${height * 0.05})">
+      <g transform="translate(0, ${height * 0.05})">
         <path d="${pathD}"></path>
       </g>
     </svg>
