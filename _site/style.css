@@ -28,6 +28,7 @@ h2 {
 
 .trend svg {
   max-width: 50px;
+  stroke: currentcolor;
 }
 
 @media (min-width: 992px) {
