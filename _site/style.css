@@ -31,6 +31,10 @@ h2 {
   stroke: currentcolor;
 }
 
+.trend svg path {
+  stroke: currentcolor;
+}
+
 @media (min-width: 992px) {
   .container {
     max-width: 46.875rem;
