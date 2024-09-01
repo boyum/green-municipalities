@@ -78,7 +78,7 @@ function createChartString(numbers) {
   return html`
     <svg
       viewBox="0 0 ${width} ${height * 1.1}"
-      stroke="black"
+      stroke="currentcolor"
       stroke-width="${width / 100}"
       stroke-linejoin="round"
       preserveAspectRatio="meet"
