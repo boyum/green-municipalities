@@ -8,6 +8,7 @@ const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
 const fetchDataForAllMunicipalities = async () => {
   const newData = await Promise.all(
     allMunicipalities.map(municipality => {
+      // biome-ignore lint/suspicious/noAsyncPromiseExecutor: <explanation>
       return new Promise(async resolve => {
         try {
           const data = await getCarbonDataForWebsite(municipality.url);
