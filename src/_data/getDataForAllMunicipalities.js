@@ -12,6 +12,16 @@ const latestDate = "2023-12-26";
 export default async function getDataForAllMunicipalities() {
   const trends = generateTrends();
 
+  let globalMax = 0;
+  // biome-ignore lint/complexity/noForEach: <explanation>
+  Object.values(trends)
+    .flatMap(municipality => municipality.map(({ value }) => value))
+    .forEach(value => {
+      if (value > globalMax) {
+        globalMax = value;
+      }
+    });
+
   const data = existsSync(path)
     ? JSON.parse(readFileSync(path).toString("utf-8"))
     : JSON.parse(readFileSync(getPath(latestDate)).toString("utf-8"));
@@ -23,7 +33,7 @@ export default async function getDataForAllMunicipalities() {
     ) => {
       const trend = getTrend(trends, municipalityData.name);
 
-      const lineGraphHtml = createChartString(trend);
+      const lineGraphHtml = createChartString(trend, globalMax);
 
       return html`<tr>
         <td>${index + 1}</td>
@@ -46,6 +56,28 @@ export default async function getDataForAllMunicipalities() {
 }
 
 /**
+ * @param {number[]} arr
+ * @param {number} n
+ * @returns {number[]}
+ */
+function averageEvery(arr, n) {
+  if (n <= 0) {
+    return arr;
+  }
+
+  const groups = [];
+  while (arr.length) {
+    groups.push(arr.splice(0, n));
+  }
+
+  return groups.map(group =>
+    // here we use Math.round() to round
+    // the calculated number:
+    Math.round(group.reduce((a, b) => a + b) / group.length),
+  );
+}
+
+/**
  * @param {{ [name: string]: {timestamp: number; value: number}[]; }} trends
  * @param {string} name
  * @returns {number[]}
@@ -55,44 +87,42 @@ function getTrend(trends, /** @type {string} */ name) {
     .sort((a, b) => a.timestamp - b.timestamp)
     .map(({ value }) => value);
 
-  if (name === "Elverum") {
-    console.log(trend);
-  }
-
-  return trend;
+  // Decrease the trend resolution by averaging every 4 days
+  return averageEvery(trend, 4);
 }
+
+// /**
+//  * @param {Array<number>} numbers
+//  */
+// function createChart(numbers) {
+// 	const width = 600;
+// 	const height = 50;
+
+// 	const normalizedNumbers = normalizeNumberList(numbers, height);
+
+// 	const svg = initSvg(width, height);
+
+// 	const group = createSVGNSElement("g");
+// 	group.setAttribute("transform", `translate(0, ${height * 0.05})`);
+
+// 	const pathD = createPathD(normalizedNumbers, width, height);
+// 	const path = initPath(pathD);
+
+// 	group.appendChild(path);
+// 	svg.appendChild(group);
+
+// 	return svg;
+// }
 
 /**
  * @param {Array<number>} numbers
+ * @param {number} max
  */
-function createChart(numbers) {
-  const width = 600;
-  const height = 50;
-
-  const normalizedNumbers = normalizeNumberList(numbers, height);
-
-  const svg = initSvg(width, height);
-
-  const group = createSVGNSElement("g");
-  group.setAttribute("transform", `translate(0, ${height * 0.05})`);
-
-  const pathD = createPathD(normalizedNumbers, width, height);
-  const path = initPath(pathD);
-
-  group.appendChild(path);
-  svg.appendChild(group);
-
-  return svg;
-}
-
-/**
- * @param {Array<number>} numbers
- */
-function createChartString(numbers) {
+function createChartString(numbers, max) {
   const width = 600;
   const height = 300;
 
-  const normalizedNumbers = normalizeNumberList(numbers, height);
+  const normalizedNumbers = normalizeNumberList(numbers, height, max);
 
   const pathD = createPathD(normalizedNumbers, width, height);
 
@@ -115,43 +145,43 @@ function createChartString(numbers) {
   `;
 }
 
-/**
- * @template {keyof SVGElementTagNameMap} TElementName
- * @param {TElementName} elementName
- * @returns {SVGElementTagNameMap[TElementName]}
- */
-function createSVGNSElement(elementName) {
-  return document.createElementNS("http://www.w3.org/2000/svg", elementName);
-}
+// /**
+//  * @template {keyof SVGElementTagNameMap} TElementName
+//  * @param {TElementName} elementName
+//  * @returns {SVGElementTagNameMap[TElementName]}
+//  */
+// function createSVGNSElement(elementName) {
+// 	return document.createElementNS("http://www.w3.org/2000/svg", elementName);
+// }
 
-/**
- * @param { number} width
- * @param { number} height
- */
-function initSvg(width, height) {
-  const svg = createSVGNSElement("svg");
-  svg.setAttribute("viewBox", `0 0 ${width} ${height * 1.1}`);
-  svg.setAttribute("stroke", "black");
-  svg.setAttribute("stroke-width", (width / 100).toString());
-  svg.setAttribute("stroke-linejoin", "round");
-  svg.setAttribute("preserveAspectRatio", "meet");
-  svg.setAttribute("fill", "none");
+// /**
+//  * @param { number} width
+//  * @param { number} height
+//  */
+// function initSvg(width, height) {
+// 	const svg = createSVGNSElement("svg");
+// 	svg.setAttribute("viewBox", `0 0 ${width} ${height * 1.1}`);
+// 	svg.setAttribute("stroke", "black");
+// 	svg.setAttribute("stroke-width", (width / 100).toString());
+// 	svg.setAttribute("stroke-linejoin", "round");
+// 	svg.setAttribute("preserveAspectRatio", "meet");
+// 	svg.setAttribute("fill", "none");
 
-  svg.setAttribute("width", width.toString());
-  svg.setAttribute("height", height.toString());
+// 	svg.setAttribute("width", width.toString());
+// 	svg.setAttribute("height", height.toString());
 
-  return svg;
-}
+// 	return svg;
+// }
 
-/**
- * @param {string} d
- */
-function initPath(d) {
-  const path = createSVGNSElement("path");
-  path.setAttribute("d", d);
+// /**
+//  * @param {string} d
+//  */
+// function initPath(d) {
+// 	const path = createSVGNSElement("path");
+// 	path.setAttribute("d", d);
 
-  return path;
-}
+// 	return path;
+// }
 
 /**
  * Takes in a list of numbers and places all the numbers on a scale from 0 to 100.
@@ -160,20 +190,17 @@ function initPath(d) {
  *
  * @param {Array<number>} numbers
  * @param {number} scalingFactorY
+ * @param {number} [globalMax]
  */
-function normalizeNumberList(numbers, scalingFactorY) {
+function normalizeNumberList(numbers, scalingFactorY, globalMax) {
   const min = Math.min(...numbers);
-  const max = Math.max(...numbers);
+  const max = globalMax ?? Math.max(...numbers);
   const diff = max - min;
 
   return numbers
     .map(number => {
       const normalizedNumber =
         ((number - min) / (diff === 0 ? 1 : diff)) * scalingFactorY;
-
-      if (Number.isNaN(normalizedNumber)) {
-        console.log({ number, min, max, diff });
-      }
 
       return normalizedNumber;
     })
