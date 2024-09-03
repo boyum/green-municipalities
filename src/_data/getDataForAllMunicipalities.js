@@ -12,6 +12,7 @@ const latestDate = "2023-12-26";
 export default async function getDataForAllMunicipalities() {
   const trends = generateTrends();
 
+  const globalMin = 0;
   let globalMax = 0;
   // biome-ignore lint/complexity/noForEach: <explanation>
   Object.values(trends)
@@ -33,7 +34,7 @@ export default async function getDataForAllMunicipalities() {
     ) => {
       const trend = getTrend(trends, municipalityData.name);
 
-      const lineGraphHtml = createChartString(trend, globalMax);
+      const lineGraphHtml = createChartString(trend,globalMin, globalMax);
 
       return html`<tr>
         <td>${index + 1}</td>
@@ -116,13 +117,14 @@ function getTrend(trends, /** @type {string} */ name) {
 
 /**
  * @param {Array<number>} numbers
- * @param {number} max
+ * @param {number} [globalMin]
+ * @param {number} [globalMax]
  */
-function createChartString(numbers, max) {
+function createChartString(numbers, globalMin, globalMax) {
   const width = 600;
   const height = 300;
 
-  const normalizedNumbers = normalizeNumberList(numbers, height, max);
+  const normalizedNumbers = normalizeNumberList(numbers, height,globalMin, globalMax);
 
   const pathD = createPathD(normalizedNumbers, width, height);
 
@@ -190,9 +192,10 @@ function createChartString(numbers, max) {
  *
  * @param {Array<number>} numbers
  * @param {number} scalingFactorY
+ * @param {number} [globalMin]
  * @param {number} [globalMax]
  */
-function normalizeNumberList(numbers, scalingFactorY, globalMax) {
+function normalizeNumberList(numbers, scalingFactorY, globalMin, globalMax) {
   const min = Math.min(...numbers);
   const max = globalMax ?? Math.max(...numbers);
   const diff = max - min;
