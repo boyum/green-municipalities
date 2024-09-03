@@ -1,5 +1,4 @@
 // @ts-check
-import FastNoiseLite from "fastnoise-lite";
 import { existsSync, readFileSync } from "node:fs";
 
 const today = new Date().toISOString().split("T")[0];
@@ -11,28 +10,20 @@ const html = String.raw;
 const latestDate = "2023-12-26";
 
 export default async function getDataForAllMunicipalities() {
+  const trends = generateTrends();
+
   const data = existsSync(path)
     ? JSON.parse(readFileSync(path).toString("utf-8"))
     : JSON.parse(readFileSync(getPath(latestDate)).toString("utf-8"));
-
-  const noise = new FastNoiseLite(Math.random());
-  // @ts-ignore
-  noise.SetNoiseType(FastNoiseLite.NoiseType.Perlin);
 
   return data.map(
     (
       /** @type {{ url: string; name: string; statistics: { co2: { renewable: { grams: number; }; grid: { grams: number; }; }; }; bytes: number; }} */ municipalityData,
       /** @type {number} */ index,
     ) => {
-      const thirtyRandomNumbers = Array.from({ length: 30 }, (_, indexB) =>
-        noise.GetNoise(index * 100, indexB * 15),
-      );
+      const trend = getTrend(trends, municipalityData.name);
 
-      if (index === 0) {
-        console.log(thirtyRandomNumbers);
-      }
-
-      const lineGraphHtml = createChartString(thirtyRandomNumbers);
+      const lineGraphHtml = createChartString(trend);
 
       return html`<tr>
         <td>${index + 1}</td>
@@ -52,6 +43,23 @@ export default async function getDataForAllMunicipalities() {
       </tr>`;
     },
   );
+}
+
+/**
+ * @param {{ [name: string]: {timestamp: number; value: number}[]; }} trends
+ * @param {string} name
+ * @returns {number[]}
+ */
+function getTrend(trends, /** @type {string} */ name) {
+  const trend = (trends[name] || [])
+    .sort((a, b) => a.timestamp - b.timestamp)
+    .map(({ value }) => value);
+
+  if (name === "Elverum") {
+    console.log(trend);
+  }
+
+  return trend;
 }
 
 /**
@@ -158,7 +166,18 @@ function normalizeNumberList(numbers, scalingFactorY) {
   const max = Math.max(...numbers);
   const diff = max - min;
 
-  return numbers.map(number => ((number - min) / diff) * scalingFactorY);
+  return numbers
+    .map(number => {
+      const normalizedNumber =
+        ((number - min) / (diff === 0 ? 1 : diff)) * scalingFactorY;
+
+      if (Number.isNaN(normalizedNumber)) {
+        console.log({ number, min, max, diff });
+      }
+
+      return normalizedNumber;
+    })
+    .filter(number => !Number.isNaN(number));
 }
 
 /**
@@ -183,4 +202,44 @@ function createPathD(numbers, scalingFactorX, scalingFactorY) {
   });
 
   return ["M0 0", ...pathD].join(" ");
+}
+
+/**
+ * Goes through each day and fetches the CO2e data for each municipality.
+ * Stores the data in the trends array on the format:
+ * { [municipalityName: string]: { timestamp: number; value: number; }[] }
+ *
+ * @returns {{ [municipalityName: string]: { timestamp: number; value: number; }[] }}
+ */
+function generateTrends() {
+  /** @type {{ [municipalityName: string]: { timestamp: number; value: number; }[] }} */
+  const trends = {};
+
+  for (let i = 0; i < 365; i++) {
+    const lastDataDate = "2023-12-26";
+    const date = new Date(lastDataDate);
+    date.setDate(date.getDate() - i);
+    const isoDate = date.toISOString().split("T")[0];
+
+    const path = getPath(isoDate);
+    const dataExistsForSpecifiedDate = existsSync(path);
+    if (!dataExistsForSpecifiedDate) {
+      continue;
+    }
+
+    const data = JSON.parse(readFileSync(path).toString("utf-8"));
+
+    for (const municipalityData of data) {
+      if (!trends[municipalityData.name]) {
+        trends[municipalityData.name] = [];
+      }
+
+      trends[municipalityData.name].push({
+        timestamp: date.getTime(),
+        value: municipalityData.statistics.co2.renewable.grams,
+      });
+    }
+  }
+
+  return trends;
 }
