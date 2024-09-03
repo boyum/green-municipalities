@@ -10,33 +10,33 @@ const html = String.raw;
 const latestDate = "2023-12-26";
 
 export default async function getDataForAllMunicipalities() {
-	const trends = generateTrends();
+  const trends = generateTrends();
 
-	const globalMin = 0;
-	let globalMax = 0;
-	// biome-ignore lint/complexity/noForEach: <explanation>
-	Object.values(trends)
-		.flatMap((municipality) => municipality.map(({ value }) => value))
-		.forEach((value) => {
-			if (value > globalMax) {
-				globalMax = value;
-			}
-		});
+  const globalMin = 0;
+  let globalMax = 0;
+  // biome-ignore lint/complexity/noForEach: <explanation>
+  Object.values(trends)
+    .flatMap(municipality => municipality.map(({ value }) => value))
+    .forEach(value => {
+      if (value > globalMax) {
+        globalMax = value;
+      }
+    });
 
-	const data = existsSync(path)
-		? JSON.parse(readFileSync(path).toString("utf-8"))
-		: JSON.parse(readFileSync(getPath(latestDate)).toString("utf-8"));
+  const data = existsSync(path)
+    ? JSON.parse(readFileSync(path).toString("utf-8"))
+    : JSON.parse(readFileSync(getPath(latestDate)).toString("utf-8"));
 
-	return data.map(
-		(
-			/** @type {{ url: string; name: string; statistics: { co2: { renewable: { grams: number; }; grid: { grams: number; }; }; }; bytes: number; }} */ municipalityData,
-			/** @type {number} */ index,
-		) => {
-			const trend = getTrend(trends, municipalityData.name);
+  return data.map(
+    (
+      /** @type {{ url: string; name: string; statistics: { co2: { renewable: { grams: number; }; grid: { grams: number; }; }; }; bytes: number; }} */ municipalityData,
+      /** @type {number} */ index,
+    ) => {
+      const trend = getTrend(trends, municipalityData.name);
 
-			const lineGraphHtml = createChartString(trend, globalMin, globalMax);
+      const lineGraphHtml = createChartString(trend, globalMin, globalMax);
 
-			return html`<tr>
+      return html`<tr>
         <td>${index + 1}</td>
         <td><a href="${municipalityData.url}">${municipalityData.name}</a></td>
         <td>
@@ -45,15 +45,15 @@ export default async function getDataForAllMunicipalities() {
         </td>
         <td>
           ${(
-						((municipalityData.statistics.co2.grid.grams ?? 0) * 100) /
-						1.76
-					).toFixed(2)}%
+            ((municipalityData.statistics.co2.grid.grams ?? 0) * 100) /
+            1.76
+          ).toFixed(2)}%
         </td>
         <td>${(municipalityData.bytes / 1_000_000).toFixed(2)}MB</td>
         <td class="trend">${lineGraphHtml}</td>
       </tr>`;
-		},
-	);
+    },
+  );
 }
 
 /**
@@ -62,19 +62,19 @@ export default async function getDataForAllMunicipalities() {
  * @returns {number[]}
  */
 function averageEvery(arr, n) {
-	if (n <= 0) {
-		return arr;
-	}
+  if (n <= 0) {
+    return arr;
+  }
 
-	// Split the array into groups of n elements
-	const groups = [];
-	while (arr.length) {
-		groups.push(arr.splice(0, n));
-	}
+  // Split the array into groups of n elements
+  const groups = [];
+  while (arr.length) {
+    groups.push(arr.splice(0, n));
+  }
 
-	return groups.map((group) =>
-		Math.round(group.reduce((a, b) => a + b) / group.length),
-	);
+  return groups.map(group =>
+    Math.round(group.reduce((a, b) => a + b) / group.length),
+  );
 }
 
 /**
@@ -82,23 +82,23 @@ function averageEvery(arr, n) {
  * @param {number} n
  */
 function medianEvery(numbers, n) {
-	if (n <= 0) {
-		return numbers;
-	}
+  if (n <= 0) {
+    return numbers;
+  }
 
-	const groups = [];
-	while (numbers.length) {
-		groups.push(numbers.splice(0, n));
-	}
+  const groups = [];
+  while (numbers.length) {
+    groups.push(numbers.splice(0, n));
+  }
 
-	return groups.map((group) => {
-		const sortedGroup = group.sort((a, b) => a - b);
-		const middle = Math.floor(sortedGroup.length / 2);
+  return groups.map(group => {
+    const sortedGroup = group.sort((a, b) => a - b);
+    const middle = Math.floor(sortedGroup.length / 2);
 
-		return sortedGroup.length % 2 !== 0
-			? sortedGroup[middle]
-			: (sortedGroup[middle - 1] + sortedGroup[middle]) / 2;
-	});
+    return sortedGroup.length % 2 !== 0
+      ? sortedGroup[middle]
+      : (sortedGroup[middle - 1] + sortedGroup[middle]) / 2;
+  });
 }
 
 /**
@@ -107,12 +107,12 @@ function medianEvery(numbers, n) {
  * @returns {number[]}
  */
 function getTrend(trends, /** @type {string} */ name) {
-	const trend = (trends[name] || [])
-		.sort((a, b) => a.timestamp - b.timestamp)
-		.map(({ value }) => value);
+  const trend = (trends[name] || [])
+    .sort((a, b) => a.timestamp - b.timestamp)
+    .map(({ value }) => value);
 
-	// Decrease the trend resolution by getting the mean value of every 4 days
-	return medianEvery(trend, 4);
+  // Decrease the trend resolution by getting the mean value of every 4 days
+  return medianEvery(trend, 4);
 }
 
 // /**
@@ -144,19 +144,19 @@ function getTrend(trends, /** @type {string} */ name) {
  * @param {number} [globalMax]
  */
 function createChartString(numbers, globalMin, globalMax) {
-	const width = 600;
-	const height = 300;
+  const width = 600;
+  const height = 300;
 
-	const normalizedNumbers = normalizeNumberList(
-		numbers,
-		height,
-		globalMin,
-		globalMax,
-	);
+  const normalizedNumbers = normalizeNumberList(
+    numbers,
+    height,
+    globalMin,
+    globalMax,
+  );
 
-	const pathD = createPathD(normalizedNumbers, width, height);
+  const pathD = createPathD(normalizedNumbers, width, height);
 
-	return html`
+  return html`
     <svg
       viewBox="0 0 ${width} ${height * 1.1}"
       stroke="currentcolor"
@@ -224,18 +224,18 @@ function createChartString(numbers, globalMin, globalMax) {
  * @param {number} [globalMax]
  */
 function normalizeNumberList(numbers, scalingFactorY, globalMin, globalMax) {
-	const min = Math.min(...numbers);
-	const max = globalMax ?? Math.max(...numbers);
-	const diff = max - min;
+  const min = Math.min(...numbers);
+  const max = globalMax ?? Math.max(...numbers);
+  const diff = max - min;
 
-	return numbers
-		.map((number) => {
-			const normalizedNumber =
-				((number - min) / (diff === 0 ? 1 : diff)) * scalingFactorY;
+  return numbers
+    .map(number => {
+      const normalizedNumber =
+        ((number - min) / (diff === 0 ? 1 : diff)) * scalingFactorY;
 
-			return normalizedNumber;
-		})
-		.filter((number) => !Number.isNaN(number));
+      return normalizedNumber;
+    })
+    .filter(number => !Number.isNaN(number));
 }
 
 /**
@@ -244,22 +244,22 @@ function normalizeNumberList(numbers, scalingFactorY, globalMin, globalMax) {
  * @param {number} scalingFactorY
  */
 function createPathD(numbers, scalingFactorX, scalingFactorY) {
-	const numberOfNumbers = numbers.length;
+  const numberOfNumbers = numbers.length;
 
-	const pathD = numbers.map((number, index) => {
-		const isFirst = index === 0;
+  const pathD = numbers.map((number, index) => {
+    const isFirst = index === 0;
 
-		const x = (index / (numberOfNumbers - 1)) * scalingFactorX;
+    const x = (index / (numberOfNumbers - 1)) * scalingFactorX;
 
-		// Invert the number (or else the graph would be upside down)
-		const y = scalingFactorY - number;
+    // Invert the number (or else the graph would be upside down)
+    const y = scalingFactorY - number;
 
-		const command = isFirst ? "M" : "L";
+    const command = isFirst ? "M" : "L";
 
-		return `${command}${x} ${y}`;
-	});
+    return `${command}${x} ${y}`;
+  });
 
-	return ["M0 0", ...pathD].join(" ");
+  return ["M0 0", ...pathD].join(" ");
 }
 
 /**
@@ -270,34 +270,34 @@ function createPathD(numbers, scalingFactorX, scalingFactorY) {
  * @returns {{ [municipalityName: string]: { timestamp: number; value: number; }[] }}
  */
 function generateTrends() {
-	/** @type {{ [municipalityName: string]: { timestamp: number; value: number; }[] }} */
-	const trends = {};
+  /** @type {{ [municipalityName: string]: { timestamp: number; value: number; }[] }} */
+  const trends = {};
 
-	for (let i = 0; i < 365; i++) {
-		const lastDataDate = "2023-12-26";
-		const date = new Date(lastDataDate);
-		date.setDate(date.getDate() - i);
-		const isoDate = date.toISOString().split("T")[0];
+  for (let i = 0; i < 365; i++) {
+    const lastDataDate = "2023-12-26";
+    const date = new Date(lastDataDate);
+    date.setDate(date.getDate() - i);
+    const isoDate = date.toISOString().split("T")[0];
 
-		const path = getPath(isoDate);
-		const dataExistsForSpecifiedDate = existsSync(path);
-		if (!dataExistsForSpecifiedDate) {
-			continue;
-		}
+    const path = getPath(isoDate);
+    const dataExistsForSpecifiedDate = existsSync(path);
+    if (!dataExistsForSpecifiedDate) {
+      continue;
+    }
 
-		const data = JSON.parse(readFileSync(path).toString("utf-8"));
+    const data = JSON.parse(readFileSync(path).toString("utf-8"));
 
-		for (const municipalityData of data) {
-			if (!trends[municipalityData.name]) {
-				trends[municipalityData.name] = [];
-			}
+    for (const municipalityData of data) {
+      if (!trends[municipalityData.name]) {
+        trends[municipalityData.name] = [];
+      }
 
-			trends[municipalityData.name].push({
-				timestamp: date.getTime(),
-				value: municipalityData.statistics.co2.renewable.grams,
-			});
-		}
-	}
+      trends[municipalityData.name].push({
+        timestamp: date.getTime(),
+        value: municipalityData.statistics.co2.renewable.grams,
+      });
+    }
+  }
 
-	return trends;
+  return trends;
 }
