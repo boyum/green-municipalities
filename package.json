@@ -1,7 +1,7 @@
 {
   "name": "green-municipalities",
   "version": "1.0.0",
-  "description": "A website that daily goes through Norway's municipalities",
+  "description": "A website that daily goes through Norway's municipalities and checks if they are green or not.",
   "homepage": "https://github.com/boyum/green-municipalities#readme",
   "bugs": {
     "url": "https://github.com/boyum/green-municipalities/issues"
@@ -19,11 +19,8 @@
     "format:fix": "biome check --write .",
     "start": "eleventy --serve"
   },
-  "prettier": "prettier-config",
   "devDependencies": {
     "@11ty/eleventy": "3.0.0-beta.1",
-    "@biomejs/biome": "^1.8.3",
-    "prettier": "^3.3.3",
-    "prettier-config": "github:boyum/prettier-config"
+    "@biomejs/biome": "^1.8.3"
   }
 }
