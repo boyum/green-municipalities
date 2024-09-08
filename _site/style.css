@@ -26,6 +26,10 @@ h2 {
   --typography-spacing-vertical: 1rem;
 }
 
+.trend svg {
+  max-width: 50px;
+}
+
 @media (min-width: 992px) {
   .container {
     max-width: 46.875rem;
