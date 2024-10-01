@@ -45,8 +45,7 @@ export default async function getDataForAllMunicipalities() {
         </td>
         <td>
           ${(
-            ((municipalityData.statistics.co2.grid.grams ?? 0) * 100) /
-            1.76
+            ((municipalityData.statistics.co2.grid.grams ?? 0) * 100) / 1.76
           ).toFixed(2)}%
         </td>
         <td>${(municipalityData.bytes / 1_000_000).toFixed(2)}MB</td>
