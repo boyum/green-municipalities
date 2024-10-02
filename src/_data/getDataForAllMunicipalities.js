@@ -1,5 +1,5 @@
 // @ts-check
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 
 const today = new Date().toISOString().split("T")[0];
 const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
@@ -7,7 +7,12 @@ const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
 const path = getPath(today);
 const html = String.raw;
 
-const latestDate = "2023-12-26";
+const getLatestDate = () => {
+  const files = readdirSync("data").filter(file => file.endsWith(".json"));
+  return files.sort().reverse()[0].replace(".json", "");
+};
+
+const latestDate = getLatestDate();
 
 export default async function getDataForAllMunicipalities() {
   const trends = generateTrends();
@@ -190,9 +195,8 @@ function generateTrends() {
   /** @type {{ [municipalityName: string]: { timestamp: number; value: number; }[] }} */
   const trends = {};
 
-  for (let i = 0; i < 365; i++) {
-    const lastDataDate = "2023-12-26";
-    const date = new Date(lastDataDate);
+  for (let i = 0; i < 500; i++) {
+    const date = new Date(latestDate);
     date.setDate(date.getDate() - i);
     const isoDate = date.toISOString().split("T")[0];
 
