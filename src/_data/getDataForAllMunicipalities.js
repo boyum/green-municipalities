@@ -28,15 +28,14 @@ export default async function getDataForAllMunicipalities() {
       }
     });
 
+  /** @type {import('../../types').MunicipalityData[]} */
   const data = existsSync(path)
     ? JSON.parse(readFileSync(path).toString("utf-8"))
     : JSON.parse(readFileSync(getPath(latestDate)).toString("utf-8"));
 
-  return data.map(
-    (
-      /** @type {{ url: string; name: string; statistics: import('../../types').Statistics; bytes: number; }} */ municipalityData,
-      /** @type {number} */ index,
-    ) => {
+  return data
+    .filter(data => !data.errored)
+    .map((municipalityData, index) => {
       const trend = getTrend(trends, municipalityData.name);
 
       const lineGraphHtml = createChartString(trend, globalMin, globalMax);
@@ -45,19 +44,18 @@ export default async function getDataForAllMunicipalities() {
         <td>${index + 1}</td>
         <td><a href="${municipalityData.url}">${municipalityData.name}</a></td>
         <td>
-          ${(municipalityData.statistics.co2.renewable.grams ?? 0).toFixed(2)}g
-          / ${(municipalityData.statistics.co2.grid.grams ?? 0).toFixed(2)}g
+          ${(municipalityData.statistics?.co2.renewable.grams ?? 0).toFixed(2)}g
+          / ${(municipalityData.statistics?.co2.grid.grams ?? 0).toFixed(2)}g
         </td>
         <td>
           ${(
-            ((municipalityData.statistics.co2.grid.grams ?? 0) * 100) / 1.76
+            ((municipalityData.statistics?.co2.grid.grams ?? 0) * 100) / 1.76
           ).toFixed(2)}%
         </td>
-        <td>${(municipalityData.bytes / 1_000_000).toFixed(2)}MB</td>
+        <td>${((municipalityData.bytes ?? 0) / 1_000_000).toFixed(2)}MB</td>
         <td class="trend">${lineGraphHtml}</td>
       </tr>`;
-    },
-  );
+    });
 }
 
 /**
@@ -89,7 +87,7 @@ function medianEvery(numbers, n) {
  * @param {string} name
  * @returns {number[]}
  */
-function getTrend(trends, /** @type {string} */ name) {
+function getTrend(trends, name) {
   const trend = (trends[name] || [])
     .sort((a, b) => a.timestamp - b.timestamp)
     .map(({ value }) => value);
@@ -206,6 +204,7 @@ function generateTrends() {
       continue;
     }
 
+    /** @type {import('../../types').MunicipalityData[]} */
     const data = JSON.parse(readFileSync(path).toString("utf-8"));
 
     for (const municipalityData of data) {
@@ -215,7 +214,7 @@ function generateTrends() {
 
       trends[municipalityData.name].push({
         timestamp: date.getTime(),
-        value: municipalityData.statistics.co2.renewable.grams,
+        value: municipalityData.statistics?.co2.renewable.grams ?? 0,
       });
     }
   }

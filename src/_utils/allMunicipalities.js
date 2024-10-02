@@ -50,7 +50,7 @@ const municipalities = [
   {
     id: "1120",
     name: "Klepp",
-    url: "https://klepp.kommune.no",
+    url: "https://www.klepp.kommune.no",
   },
   {
     id: "1121",
@@ -685,7 +685,7 @@ const municipalities = [
   {
     id: "3049",
     name: "Lier",
-    url: "https://lier.kommune.no",
+    url: "https://www.lier.kommune.no",
   },
   {
     id: "3050",
@@ -1460,7 +1460,7 @@ const municipalities = [
   {
     id: "5031",
     name: "Malvik",
-    url: "https://malvik.kommune.no",
+    url: "https://www.malvik.kommune.no",
   },
   {
     id: "5032",
@@ -1610,7 +1610,7 @@ const municipalities = [
   {
     id: "5405",
     name: "Vadsø",
-    url: "https://vadso.kommune.no",
+    url: "https://www.vadso.kommune.no",
   },
   {
     id: "5406",
@@ -1720,7 +1720,7 @@ const municipalities = [
   {
     id: "5432",
     name: "Loppa",
-    url: "https://loppa.kommune.no",
+    url: "https://www.loppa.kommune.no",
   },
   {
     id: "5433",
@@ -1760,7 +1760,7 @@ const municipalities = [
   {
     id: "5440",
     name: "Berlevåg",
-    url: "https://berlevag.kommune.no",
+    url: "https://www.berlevag.kommune.no",
   },
   {
     id: "5441",
