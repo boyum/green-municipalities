@@ -193,12 +193,22 @@ function generateTrends() {
   /** @type {{ [municipalityName: string]: { timestamp: number; value: number; }[] }} */
   const trends = {};
 
-  for (let i = 0; i < 500; i++) {
-    const date = new Date(latestDate);
-    date.setDate(date.getDate() - i);
-    const isoDate = date.toISOString().split("T")[0];
+  // Up until December 26 2023, data was generated every day.
+  // Between December 26 2023 and September 30 2024, no data was generated.
+  // After October 2 2024, data is generated every Monday.
+  const numberOfFilesInTrendSet = 100;
 
-    const path = getPath(isoDate);
+  const dataDirectory = "data";
+  const dataFiles = readdirSync(dataDirectory);
+  const dates = dataFiles
+    .sort()
+    .reverse()
+    .slice(0, numberOfFilesInTrendSet)
+    .map(file => file.replace(".json", ""));
+
+  for (const dateStr of dates) {
+    const date = new Date(dateStr);
+    const path = getPath(dateStr);
     const dataExistsForSpecifiedDate = existsSync(path);
     if (!dataExistsForSpecifiedDate) {
       continue;
