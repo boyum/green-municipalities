@@ -1,8 +1,9 @@
 name: Fetch data
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "0 0 * * *" # Every day at midnight
+  schedule:
+    # Every Monday at midnight
+    - cron: 0 0 * * 1
 
 jobs:
   fetch_data:
