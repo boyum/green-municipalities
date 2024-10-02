@@ -1,9 +1,13 @@
 // @ts-check
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync, readdirSync } from "node:fs";
 import allMunicipalities from "./allMunicipalities.js";
 import getCarbonDataForWebsite from "./getCarbonDataForWebsite.js";
 
 const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
+const getNewestFile = () => {
+  const files = readdirSync("data").filter(file => file.endsWith(".json"));
+  return files.sort().reverse()[0];
+};
 
 const fetchDataForAllMunicipalities = async () => {
   const newData = await Promise.all(
@@ -39,7 +43,7 @@ const fetchDataForAllMunicipalities = async () => {
  *
  * @param newData
  * @param existingData
- * @returns {{statistics?: import('../../types.js').Statistics}[]}
+ * @returns {{statistics: import('../../types.js').Statistics}[]}
  */
 const mergeMunicipalitiesData = (newData, existingData) => {
   return allMunicipalities
@@ -78,15 +82,14 @@ const getISODate = (/** @type {Date} */ date) =>
 
 const run = async () => {
   const today = new Date();
-  const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
 
   const todayISO = getISODate(today);
-  const yesterdayISO = getISODate(yesterday);
 
   const path = getPath(todayISO);
 
-  const previousData = existsSync(getPath(yesterdayISO))
-    ? JSON.parse(readFileSync(getPath(yesterdayISO)).toString("utf-8"))
+  const previousFile = getPath(getNewestFile());
+  const previousData = existsSync(previousFile)
+    ? JSON.parse(readFileSync(previousFile).toString("utf-8"))
     : [];
   const newData = await fetchDataForAllMunicipalities();
   if (newData?.length === 1) {
@@ -96,11 +99,11 @@ const run = async () => {
   const mergedData = mergeMunicipalitiesData(newData, previousData);
   const sortedData = mergedData.sort(
     (dataA, dataB) =>
-      (dataA.statistics?.co2.grid.grams ?? 0) -
-      (dataB.statistics?.co2.grid.grams ?? 0),
+      (dataA.statistics.co2.grid.grams ?? 0) -
+      (dataB.statistics.co2.grid.grams ?? 0),
   );
 
-  const data = [{ date: new Date(), data: sortedData }, ...previousData];
+  const data = [...sortedData, ...previousData];
   writeFileSync(path, JSON.stringify(data, null));
 };
 
