@@ -1,5 +1,5 @@
 // @ts-check
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 
 const today = new Date().toISOString().split("T")[0];
 const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
