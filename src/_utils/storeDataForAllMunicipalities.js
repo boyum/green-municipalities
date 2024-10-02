@@ -39,7 +39,7 @@ const fetchDataForAllMunicipalities = async () => {
  *
  * @param newData
  * @param existingData
- * @returns {unknown[]}
+ * @returns {{statistics?: import('../../types.js').Statistics}[]}
  */
 const mergeMunicipalitiesData = (newData, existingData) => {
   return allMunicipalities
@@ -93,13 +93,11 @@ const run = async () => {
     throw new Error("No new data found for any municipality");
   }
 
-  console.log(newData);
-
   const mergedData = mergeMunicipalitiesData(newData, previousData);
   const sortedData = mergedData.sort(
     (dataA, dataB) =>
-      (dataA.statistics.co2.grid.grams ?? 0) -
-      (dataB.statistics.co2.grid.grams ?? 0),
+      (dataA.statistics?.co2.grid.grams ?? 0) -
+      (dataB.statistics?.co2.grid.grams ?? 0),
   );
 
   const data = [{ date: new Date(), data: sortedData }, ...previousData];

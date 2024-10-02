@@ -29,7 +29,7 @@ export default async function getDataForAllMunicipalities() {
 
   return data.map(
     (
-      /** @type {{ url: string; name: string; statistics: { co2: { renewable: { grams: number; }; grid: { grams: number; }; }; }; bytes: number; }} */ municipalityData,
+      /** @type {{ url: string; name: string; statistics?: import('../../types').Statistics; bytes: number; }} */ municipalityData,
       /** @type {number} */ index,
     ) => {
       const trend = getTrend(trends, municipalityData.name);
@@ -40,39 +40,18 @@ export default async function getDataForAllMunicipalities() {
         <td>${index + 1}</td>
         <td><a href="${municipalityData.url}">${municipalityData.name}</a></td>
         <td>
-          ${(municipalityData.statistics.co2.renewable.grams ?? 0).toFixed(2)}g
-          / ${(municipalityData.statistics.co2.grid.grams ?? 0).toFixed(2)}g
+          ${(municipalityData.statistics?.co2.renewable.grams ?? 0).toFixed(2)}g
+          / ${(municipalityData.statistics?.co2.grid.grams ?? 0).toFixed(2)}g
         </td>
         <td>
           ${(
-            ((municipalityData.statistics.co2.grid.grams ?? 0) * 100) / 1.76
+            ((municipalityData.statistics?.co2.grid.grams ?? 0) * 100) / 1.76
           ).toFixed(2)}%
         </td>
         <td>${(municipalityData.bytes / 1_000_000).toFixed(2)}MB</td>
         <td class="trend">${lineGraphHtml}</td>
       </tr>`;
     },
-  );
-}
-
-/**
- * @param {number[]} arr
- * @param {number} n
- * @returns {number[]}
- */
-function averageEvery(arr, n) {
-  if (n <= 0) {
-    return arr;
-  }
-
-  // Split the array into groups of n elements
-  const groups = [];
-  while (arr.length) {
-    groups.push(arr.splice(0, n));
-  }
-
-  return groups.map(group =>
-    Math.round(group.reduce((a, b) => a + b) / group.length),
   );
 }
 
