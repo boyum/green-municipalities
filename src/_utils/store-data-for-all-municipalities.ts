@@ -1,5 +1,3 @@
-// @ts-check
-
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { MunicipalityData } from "../../types.js";

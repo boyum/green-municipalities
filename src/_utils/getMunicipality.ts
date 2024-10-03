@@ -1,4 +1,3 @@
-// @ts-check
 import type { Municipality } from "../../types.ts";
 import allMunicipalities from "./all-municipalities.ts";
 

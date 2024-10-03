@@ -20,6 +20,7 @@
     "format:fix": "biome check --write .",
     "postinstall": "bun generate-eleventy-types.ts",
     "start": "npm run eleventy -- --serve",
+    "test-municipalities": "bun --bun src/_utils/test-municipalities.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
@@ -29,8 +30,5 @@
     "bun": "^1.1.29",
     "execa": "^9.4.0",
     "typescript": "^5.6.2"
-  },
-  "dependencies": {
-    "undici": "^6.19.8"
   }
 }

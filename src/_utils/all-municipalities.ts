@@ -4,42 +4,42 @@ const municipalities: Municipality[] = [
   {
     id: "301",
     name: "Oslo",
-    url: "https://oslo.kommune.no",
+    url: "https://www.oslo.kommune.no",
   },
   {
     id: "1101",
     name: "Eigersund",
-    url: "https://eigersund.kommune.no",
+    url: "https://www.eigersund.kommune.no",
   },
   {
     id: "1103",
     name: "Stavanger",
-    url: "https://stavanger.kommune.no",
+    url: "https://www.stavanger.kommune.no",
   },
   {
     id: "1106",
     name: "Haugesund",
-    url: "https://haugesund.kommune.no",
+    url: "https://www.haugesund.kommune.no",
   },
   {
     id: "1108",
     name: "Sandnes",
-    url: "https://sandnes.kommune.no",
+    url: "https://www.sandnes.kommune.no",
   },
   {
     id: "1111",
     name: "Sokndal",
-    url: "https://sokndal.kommune.no",
+    url: "https://www.sokndal.kommune.no",
   },
   {
     id: "1112",
     name: "Lund",
-    url: "https://lund.kommune.no",
+    url: "https://www.lund.kommune.no",
   },
   {
     id: "1114",
     name: "Bjerkreim",
-    url: "https://bjerkreim.kommune.no",
+    url: "https://www.bjerkreim.kommune.no",
   },
   {
     id: "1119",
@@ -54,7 +54,7 @@ const municipalities: Municipality[] = [
   {
     id: "1121",
     name: "Time",
-    url: "https://time.kommune.no",
+    url: "https://www.time.kommune.no",
   },
   {
     id: "1122",
@@ -64,52 +64,52 @@ const municipalities: Municipality[] = [
   {
     id: "1124",
     name: "Sola",
-    url: "https://sola.kommune.no",
+    url: "https://www.sola.kommune.no",
   },
   {
     id: "1127",
     name: "Randaberg",
-    url: "https://randaberg.kommune.no",
+    url: "https://www.randaberg.kommune.no",
   },
   {
     id: "1130",
     name: "Strand",
-    url: "https://strand.kommune.no",
+    url: "https://www.strand.kommune.no",
   },
   {
     id: "1133",
     name: "Hjelmeland",
-    url: "https://hjelmeland.kommune.no",
+    url: "https://www.hjelmeland.kommune.no",
   },
   {
     id: "1134",
     name: "Suldal",
-    url: "https://suldal.kommune.no",
+    url: "https://www.suldal.kommune.no",
   },
   {
     id: "1135",
     name: "Sauda",
-    url: "https://sauda.kommune.no",
+    url: "https://www.sauda.kommune.no",
   },
   {
     id: "1144",
     name: "Kvitsøy",
-    url: "https://kvitsoy.kommune.no",
+    url: "https://www.kvitsoy.kommune.no",
   },
   {
     id: "1145",
     name: "Bokn",
-    url: "https://bokn.kommune.no",
+    url: "https://www.bokn.kommune.no",
   },
   {
     id: "1146",
     name: "Tysvær",
-    url: "https://tysver.kommune.no",
+    url: "https://www.tysver.kommune.no",
   },
   {
     id: "1149",
     name: "Karmøy",
-    url: "https://karmoy.kommune.no",
+    url: "https://www.karmoy.kommune.no",
   },
   {
     id: "1151",
@@ -124,12 +124,12 @@ const municipalities: Municipality[] = [
   {
     id: "1505",
     name: "Kristiansund",
-    url: "https://kristiansund.kommune.no",
+    url: "https://www.kristiansund.kommune.no",
   },
   {
     id: "1506",
     name: "Molde",
-    url: "https://molde.kommune.no",
+    url: "https://www.molde.kommune.no",
   },
   {
     id: "1507",
@@ -139,32 +139,32 @@ const municipalities: Municipality[] = [
   {
     id: "1511",
     name: "Vanylven",
-    url: "https://vanylven.kommune.no",
+    url: "https://www.vanylven.kommune.no",
   },
   {
     id: "1514",
     name: "Sande",
-    url: "https://sande-mr.kommune.no",
+    url: "https://www.sande.kommune.no",
   },
   {
     id: "1515",
     name: "Herøy",
-    url: "https://heroy.kommune.no",
+    url: "https://www.heroy.kommune.no",
   },
   {
     id: "1516",
     name: "Ulstein",
-    url: "https://ulstein.kommune.no",
+    url: "https://www.ulstein.kommune.no",
   },
   {
     id: "1517",
     name: "Hareid",
-    url: "https://hareid.kommune.no",
+    url: "https://www.hareid.kommune.no",
   },
   {
     id: "1520",
     name: "Ørsta",
-    url: "https://orsta.kommune.no",
+    url: "https://www.orsta.kommune.no",
   },
   {
     id: "1525",
@@ -179,72 +179,72 @@ const municipalities: Municipality[] = [
   {
     id: "1531",
     name: "Sula",
-    url: "https://sula.kommune.no",
+    url: "https://www.sula.kommune.no",
   },
   {
     id: "1532",
     name: "Giske",
-    url: "https://giske.kommune.no",
+    url: "https://www.giske.kommune.no",
   },
   {
     id: "1535",
     name: "Vestnes",
-    url: "https://vestnes.kommune.no",
+    url: "https://www.vestnes.kommune.no",
   },
   {
     id: "1539",
     name: "Rauma",
-    url: "https://rauma.kommune.no",
+    url: "https://www.rauma.kommune.no",
   },
   {
     id: "1547",
     name: "Aukra",
-    url: "https://aukra.kommune.no",
+    url: "https://www.aukra.kommune.no",
   },
   {
     id: "1554",
     name: "Averøy",
-    url: "https://averoy.kommune.no",
+    url: "https://www.averoy.kommune.no",
   },
   {
     id: "1557",
     name: "Gjemnes",
-    url: "https://gjemnes.kommune.no",
+    url: "https://www.gjemnes.kommune.no",
   },
   {
     id: "1560",
     name: "Tingvoll",
-    url: "https://tingvoll.kommune.no",
+    url: "https://www.tingvoll.kommune.no",
   },
   {
     id: "1563",
     name: "Sunndal",
-    url: "https://sunndal.kommune.no",
+    url: "https://www.sunndal.kommune.no",
   },
   {
     id: "1566",
     name: "Surnadal",
-    url: "https://surnadal.kommune.no",
+    url: "https://www.surnadal.kommune.no",
   },
   {
     id: "1573",
     name: "Smøla",
-    url: "https://smola.kommune.no",
+    url: "https://www.smola.kommune.no",
   },
   {
     id: "1576",
     name: "Aure",
-    url: "https://aure.kommune.no",
+    url: "https://www.aure.kommune.no",
   },
   {
     id: "1577",
     name: "Volda",
-    url: "https://volda.kommune.no",
+    url: "https://www.volda.kommune.no",
   },
   {
     id: "1578",
     name: "Fjord",
-    url: "https://fjord.kommune.no",
+    url: "https://www.fjord.kommune.no",
   },
   {
     id: "1579",
@@ -259,57 +259,57 @@ const municipalities: Municipality[] = [
   {
     id: "1806",
     name: "Narvik",
-    url: "https://narvik.kommune.no",
+    url: "https://www.narvik.kommune.no",
   },
   {
     id: "1811",
     name: "Bindal",
-    url: "https://bindal.kommune.no",
+    url: "https://www.bindal.kommune.no",
   },
   {
     id: "1812",
     name: "Sømna",
-    url: "https://somna.kommune.no",
+    url: "https://www.somna.kommune.no",
   },
   {
     id: "1813",
     name: "Brønnøy",
-    url: "https://bronnoy.kommune.no",
+    url: "https://www.bronnoy.kommune.no",
   },
   {
     id: "1815",
     name: "Vega",
-    url: "https://vega.kommune.no",
+    url: "https://www.vega.kommune.no",
   },
   {
     id: "1816",
     name: "Vevelstad",
-    url: "http://www.vevelstad.kommune.no",
+    url: "https://www.vevelstad.kommune.no",
   },
   {
     id: "1818",
     name: "Herøy",
-    url: "https://heroy.kommune.no",
+    url: "https://www.heroy.kommune.no",
   },
   {
     id: "1820",
     name: "Alstahaug",
-    url: "https://alstahaug.kommune.no",
+    url: "https://www.alstahaug.kommune.no",
   },
   {
     id: "1822",
     name: "Leirfjord",
-    url: "https://leirfjord.kommune.no",
+    url: "https://www.leirfjord.kommune.no",
   },
   {
     id: "1824",
     name: "Vefsn",
-    url: "https://vefsn.kommune.no",
+    url: "https://www.vefsn.kommune.no",
   },
   {
     id: "1825",
     name: "Grane",
-    url: "https://grane.kommune.no",
+    url: "https://www.grane.kommune.no",
   },
   {
     id: "1826",
@@ -319,12 +319,12 @@ const municipalities: Municipality[] = [
   {
     id: "1827",
     name: "Dønna",
-    url: "https://donna.kommune.no",
+    url: "https://www.donna.kommune.no",
   },
   {
     id: "1828",
     name: "Nesna",
-    url: "https://nesna.kommune.no",
+    url: "https://www.nesna.kommune.no",
   },
   {
     id: "1832",
@@ -334,37 +334,37 @@ const municipalities: Municipality[] = [
   {
     id: "1833",
     name: "Rana",
-    url: "https://rana.kommune.no",
+    url: "https://www.rana.kommune.no",
   },
   {
     id: "1834",
     name: "Lurøy",
-    url: "https://luroy.kommune.no",
+    url: "https://www.luroy.kommune.no",
   },
   {
     id: "1835",
     name: "Træna",
-    url: "https://trana.kommune.no",
+    url: "https://www.trana.kommune.no",
   },
   {
     id: "1836",
     name: "Rødøy",
-    url: "http://www.rodoy.kommune.no",
+    url: "https://www.rodoy.kommune.no",
   },
   {
     id: "1837",
     name: "Meløy",
-    url: "https://meloy.kommune.no",
+    url: "https://www.meloy.kommune.no",
   },
   {
     id: "1838",
     name: "Gildeskål",
-    url: "https://gildeskal.kommune.no",
+    url: "https://www.gildeskal.kommune.no",
   },
   {
     id: "1839",
     name: "Beiarn",
-    url: "https://beiarn.kommune.no",
+    url: "https://www.beiarn.kommune.no",
   },
   {
     id: "1840",
@@ -374,17 +374,17 @@ const municipalities: Municipality[] = [
   {
     id: "1841",
     name: "Fauske - Fuossko",
-    url: "https://fauske.kommune.no",
+    url: "https://www.fauske.kommune.no",
   },
   {
     id: "1845",
     name: "Sørfold",
-    url: "https://sorfold.kommune.no",
+    url: "https://www.sorfold.kommune.no",
   },
   {
     id: "1848",
     name: "Steigen",
-    url: "https://steigen.kommune.no",
+    url: "https://www.steigen.kommune.no",
   },
   {
     id: "1851",
@@ -394,7 +394,7 @@ const municipalities: Municipality[] = [
   {
     id: "1853",
     name: "Evenes - Evenášši",
-    url: "https://evenes.kommune.no",
+    url: "https://www.evenes.kommune.no",
   },
   {
     id: "1856",
@@ -414,7 +414,7 @@ const municipalities: Municipality[] = [
   {
     id: "1860",
     name: "Vestvågøy",
-    url: "https://vestvagoy.kommune.no",
+    url: "https://www.vestvagoy.kommune.no",
   },
   {
     id: "1865",
@@ -424,22 +424,22 @@ const municipalities: Municipality[] = [
   {
     id: "1866",
     name: "Hadsel",
-    url: "https://hadsel.kommune.no",
+    url: "https://www.hadsel.kommune.no",
   },
   {
     id: "1867",
     name: "Bø",
-    url: "https://boe.kommune.no",
+    url: "https://www.boe.kommune.no",
   },
   {
     id: "1868",
     name: "Øksnes",
-    url: "https://oksnes.kommune.no",
+    url: "https://www.oksnes.kommune.no",
   },
   {
     id: "1870",
     name: "Sortland - Suortá",
-    url: "https://sortland.kommune.no",
+    url: "https://www.sortland.kommune.no",
   },
   {
     id: "1871",
@@ -454,17 +454,17 @@ const municipalities: Municipality[] = [
   {
     id: "1875",
     name: "Hábmer - Hamarøy",
-    url: "https://hamaroy.kommune.no",
+    url: "https://www.hamaroy.kommune.no",
   },
   {
     id: "3001",
     name: "Halden",
-    url: "https://halden.kommune.no",
+    url: "https://www.halden.kommune.no",
   },
   {
     id: "3002",
     name: "Moss",
-    url: "https://moss.kommune.no",
+    url: "https://www.moss.kommune.no",
   },
   {
     id: "3003",
@@ -479,17 +479,17 @@ const municipalities: Municipality[] = [
   {
     id: "3005",
     name: "Drammen",
-    url: "https://drammen.kommune.no",
+    url: "https://www.drammen.kommune.no",
   },
   {
     id: "3006",
     name: "Kongsberg",
-    url: "https://kongsberg.kommune.no",
+    url: "https://www.kongsberg.kommune.no",
   },
   {
     id: "3007",
     name: "Ringerike",
-    url: "https://ringerike.kommune.no",
+    url: "https://www.ringerike.kommune.no",
   },
   {
     id: "3011",
@@ -499,102 +499,102 @@ const municipalities: Municipality[] = [
   {
     id: "3012",
     name: "Aremark",
-    url: "https://aremark.kommune.no",
+    url: "https://www.aremark.kommune.no",
   },
   {
     id: "3013",
     name: "Marker",
-    url: "https://marker.kommune.no",
+    url: "https://www.marker.kommune.no",
   },
   {
     id: "3014",
     name: "Indre Østfold",
-    url: "https://io.kommune.no",
+    url: "https://www.io.kommune.no",
   },
   {
     id: "3015",
     name: "Skiptvet",
-    url: "https://skiptvet.kommune.no",
+    url: "https://www.skiptvet.kommune.no",
   },
   {
     id: "3016",
     name: "Rakkestad",
-    url: "https://rakkestad.kommune.no",
+    url: "https://www.rakkestad.kommune.no",
   },
   {
     id: "3017",
     name: "Råde",
-    url: "https://rade.kommune.no",
+    url: "https://www.rade.kommune.no",
   },
   {
     id: "3018",
     name: "Våler",
-    url: "https://valer-of.kommune.no",
+    url: "https://www.valer.kommune.no",
   },
   {
     id: "3019",
     name: "Vestby",
-    url: "https://vestby.kommune.no",
+    url: "https://www.vestby.kommune.no",
   },
   {
     id: "3020",
     name: "Nordre Follo",
-    url: "https://nordrefollo.kommune.no",
+    url: "https://www.nordrefollo.kommune.no",
   },
   {
     id: "3021",
     name: "Ås",
-    url: "https://as.kommune.no",
+    url: "https://www.as.kommune.no",
   },
   {
     id: "3022",
     name: "Frogn",
-    url: "https://frogn.kommune.no",
+    url: "https://www.frogn.kommune.no",
   },
   {
     id: "3023",
     name: "Nesodden",
-    url: "https://nesodden.kommune.no",
+    url: "https://www.nesodden.kommune.no",
   },
   {
     id: "3024",
     name: "Bærum",
-    url: "https://baerum.kommune.no",
+    url: "https://www.baerum.kommune.no",
   },
   {
     id: "3025",
     name: "Asker",
-    url: "https://asker.kommune.no",
+    url: "https://www.asker.kommune.no",
   },
   {
     id: "3026",
     name: "Aurskog-Høland",
-    url: "https://aurskog-holand.kommune.no",
+    url: "https://www.aurskog-holand.kommune.no",
   },
   {
     id: "3027",
     name: "Rælingen",
-    url: "https://ralingen.kommune.no",
+    url: "https://www.ralingen.kommune.no",
   },
   {
     id: "3028",
     name: "Enebakk",
-    url: "https://enebakk.kommune.no",
+    url: "https://www.enebakk.kommune.no",
   },
   {
     id: "3029",
     name: "Lørenskog",
-    url: "https://lorenskog.kommune.no",
+    url: "https://www.lorenskog.kommune.no",
   },
   {
     id: "3030",
     name: "Lillestrøm",
-    url: "https://lillestrom.kommune.no",
+    url: "https://www.lillestrom.kommune.no",
   },
   {
     id: "3031",
     name: "Nittedal",
-    url: "https://nittedal.kommune.no",
+    url: "https://www.nittedal.kommune.no",
   },
   {
     id: "3032",
@@ -604,7 +604,7 @@ const municipalities: Municipality[] = [
   {
     id: "3033",
     name: "Ullensaker",
-    url: "https://ullensaker.kommune.no",
+    url: "https://www.ullensaker.kommune.no",
   },
   {
     id: "3034",
@@ -629,52 +629,52 @@ const municipalities: Municipality[] = [
   {
     id: "3038",
     name: "Hole",
-    url: "https://hole.kommune.no",
+    url: "https://www.hole.kommune.no",
   },
   {
     id: "3039",
     name: "Flå",
-    url: "https://flaa.kommune.no",
+    url: "https://www.flaa.kommune.no",
   },
   {
     id: "3040",
     name: "Nesbyen",
-    url: "https://nesbyen.kommune.no",
+    url: "https://www.nesbyen.kommune.no",
   },
   {
     id: "3041",
     name: "Gol",
-    url: "https://gol.kommune.no",
+    url: "https://www.gol.kommune.no",
   },
   {
     id: "3042",
     name: "Hemsedal",
-    url: "https://hemsedal.kommune.no",
+    url: "https://www.hemsedal.kommune.no",
   },
   {
     id: "3043",
     name: "Ål",
-    url: "https://aal.kommune.no",
+    url: "https://www.aal.kommune.no",
   },
   {
     id: "3044",
     name: "Hol",
-    url: "https://hol.kommune.no",
+    url: "https://www.hol.kommune.no",
   },
   {
     id: "3045",
     name: "Sigdal",
-    url: "https://sigdal.kommune.no",
+    url: "https://www.sigdal.kommune.no",
   },
   {
     id: "3046",
     name: "Krødsherad",
-    url: "https://krodsherad.kommune.no",
+    url: "https://www.krodsherad.kommune.no",
   },
   {
     id: "3047",
     name: "Modum",
-    url: "https://modum.kommune.no",
+    url: "https://www.modum.kommune.no",
   },
   {
     id: "3048",
@@ -689,37 +689,37 @@ const municipalities: Municipality[] = [
   {
     id: "3050",
     name: "Flesberg",
-    url: "https://flesberg.kommune.no",
+    url: "https://www.flesberg.kommune.no",
   },
   {
     id: "3051",
     name: "Rollag",
-    url: "https://rollag.kommune.no",
+    url: "https://www.rollag.kommune.no",
   },
   {
     id: "3052",
     name: "Nore og Uvdal",
-    url: "https://nore-og-uvdal.kommune.no",
+    url: "https://www.nore-og-uvdal.kommune.no",
   },
   {
     id: "3053",
     name: "Jevnaker",
-    url: "https://jevnaker.kommune.no",
+    url: "https://www.jevnaker.kommune.no",
   },
   {
     id: "3054",
     name: "Lunner",
-    url: "https://lunner.kommune.no",
+    url: "https://www.lunner.kommune.no",
   },
   {
     id: "3401",
     name: "Kongsvinger",
-    url: "https://kongsvinger.kommune.no",
+    url: "https://www.kongsvinger.kommune.no",
   },
   {
     id: "3403",
     name: "Hamar",
-    url: "https://hamar.kommune.no",
+    url: "https://www.hamar.kommune.no",
   },
   {
     id: "3405",
@@ -729,7 +729,7 @@ const municipalities: Municipality[] = [
   {
     id: "3407",
     name: "Gjøvik",
-    url: "https://gjovik.kommune.no",
+    url: "https://www.gjovik.kommune.no",
   },
   {
     id: "3411",
@@ -739,32 +739,32 @@ const municipalities: Municipality[] = [
   {
     id: "3412",
     name: "Løten",
-    url: "https://loten.kommune.no",
+    url: "https://www.loten.kommune.no",
   },
   {
     id: "3413",
     name: "Stange",
-    url: "https://stange.kommune.no",
+    url: "https://www.stange.kommune.no",
   },
   {
     id: "3414",
     name: "Nord-Odal",
-    url: "https://nord-odal.kommune.no",
+    url: "https://www.nord-odal.kommune.no",
   },
   {
     id: "3415",
     name: "Sør-Odal",
-    url: "https://sor-odal.kommune.no",
+    url: "https://www.sor-odal.kommune.no",
   },
   {
     id: "3416",
     name: "Eidskog",
-    url: "https://eidskog.kommune.no",
+    url: "https://www.eidskog.kommune.no",
   },
   {
     id: "3417",
     name: "Grue",
-    url: "https://grue.kommune.no",
+    url: "https://www.grue.kommune.no",
   },
   {
     id: "3418",
@@ -774,7 +774,7 @@ const municipalities: Municipality[] = [
   {
     id: "3419",
     name: "Våler",
-    url: "https://vaaler-he.kommune.no",
+    url: "https://www.vaaler-he.kommune.no",
   },
   {
     id: "3420",
@@ -784,97 +784,97 @@ const municipalities: Municipality[] = [
   {
     id: "3421",
     name: "Trysil",
-    url: "https://trysil.kommune.no",
+    url: "https://www.trysil.kommune.no",
   },
   {
     id: "3422",
     name: "Åmot",
-    url: "https://amot.kommune.no",
+    url: "https://www.amot.kommune.no",
   },
   {
     id: "3423",
     name: "Stor-Elvdal",
-    url: "https://stor-elvdal.kommune.no",
+    url: "https://www.stor-elvdal.kommune.no",
   },
   {
     id: "3424",
     name: "Rendalen",
-    url: "https://rendalen.kommune.no",
+    url: "https://www.rendalen.kommune.no",
   },
   {
     id: "3425",
     name: "Engerdal",
-    url: "https://engerdal.kommune.no",
+    url: "https://www.engerdal.kommune.no",
   },
   {
     id: "3426",
     name: "Tolga",
-    url: "https://tolga.kommune.no",
+    url: "https://www.tolga.kommune.no",
   },
   {
     id: "3427",
     name: "Tynset",
-    url: "https://tynset.kommune.no",
+    url: "https://www.tynset.kommune.no",
   },
   {
     id: "3428",
     name: "Alvdal",
-    url: "https://alvdal.kommune.no",
+    url: "https://www.alvdal.kommune.no",
   },
   {
     id: "3429",
     name: "Folldal",
-    url: "https://folldal.kommune.no",
+    url: "https://www.folldal.kommune.no",
   },
   {
     id: "3430",
     name: "Os",
-    url: "https://os.kommune.no",
+    url: "https://www.os.kommune.no",
   },
   {
     id: "3431",
     name: "Dovre",
-    url: "https://dovre.kommune.no",
+    url: "https://www.dovre.kommune.no",
   },
   {
     id: "3432",
     name: "Lesja",
-    url: "https://lesja.kommune.no",
+    url: "https://www.lesja.kommune.no",
   },
   {
     id: "3433",
     name: "Skjåk",
-    url: "https://skjaak.kommune.no",
+    url: "https://www.skjaak.kommune.no",
   },
   {
     id: "3434",
     name: "Lom",
-    url: "https://lom.kommune.no",
+    url: "https://www.lom.kommune.no",
   },
   {
     id: "3435",
     name: "Vågå",
-    url: "https://vaga.kommune.no",
+    url: "https://www.vaga.kommune.no",
   },
   {
     id: "3436",
     name: "Nord-Fron",
-    url: "https://nord-fron.kommune.no",
+    url: "https://www.nord-fron.kommune.no",
   },
   {
     id: "3437",
     name: "Sel",
-    url: "https://sel.kommune.no",
+    url: "https://www.sel.kommune.no",
   },
   {
     id: "3438",
     name: "Sør-Fron",
-    url: "https://sor-fron.kommune.no",
+    url: "https://www.sor-fron.kommune.no",
   },
   {
     id: "3439",
     name: "Ringebu",
-    url: "https://ringebu.kommune.no",
+    url: "https://www.ringebu.kommune.no",
   },
   {
     id: "3440",
@@ -889,7 +889,7 @@ const municipalities: Municipality[] = [
   {
     id: "3442",
     name: "Østre Toten",
-    url: "https://ostre-toten.kommune.no",
+    url: "https://www.ototen.no",
   },
   {
     id: "3443",
@@ -899,52 +899,52 @@ const municipalities: Municipality[] = [
   {
     id: "3446",
     name: "Gran",
-    url: "https://gran.kommune.no",
+    url: "https://www.gran.kommune.no",
   },
   {
     id: "3447",
     name: "Søndre Land",
-    url: "https://sondre-land.kommune.no",
+    url: "https://www.sondre-land.kommune.no",
   },
   {
     id: "3448",
     name: "Nordre Land",
-    url: "https://nordre-land.kommune.no",
+    url: "https://www.nordre-land.kommune.no",
   },
   {
     id: "3449",
     name: "Sør-Aurdal",
-    url: "https://sor-aurdal.kommune.no",
+    url: "https://www.sor-aurdal.kommune.no",
   },
   {
     id: "3450",
     name: "Etnedal",
-    url: "https://etnedal.kommune.no",
+    url: "https://www.etnedal.kommune.no",
   },
   {
     id: "3451",
     name: "Nord-Aurdal",
-    url: "https://nord-aurdal.kommune.no",
+    url: "https://www.nord-aurdal.kommune.no",
   },
   {
     id: "3452",
     name: "Vestre Slidre",
-    url: "https://vestre-slidre.kommune.no",
+    url: "https://www.vestre-slidre.kommune.no",
   },
   {
     id: "3453",
     name: "Øystre Slidre",
-    url: "https://oystre-slidre.kommune.no",
+    url: "https://www.oystre-slidre.kommune.no",
   },
   {
     id: "3454",
     name: "Vang",
-    url: "https://vang.kommune.no",
+    url: "https://www.vang.kommune.no",
   },
   {
     id: "3801",
     name: "Horten",
-    url: "https://horten.kommune.no",
+    url: "https://www.horten.kommune.no",
   },
   {
     id: "3802",
@@ -954,17 +954,17 @@ const municipalities: Municipality[] = [
   {
     id: "3803",
     name: "Tønsberg",
-    url: "https://tonsberg.kommune.no",
+    url: "https://www.tonsberg.kommune.no",
   },
   {
     id: "3804",
     name: "Sandefjord",
-    url: "https://sandefjord.kommune.no",
+    url: "https://www.sandefjord.kommune.no",
   },
   {
     id: "3805",
     name: "Larvik",
-    url: "https://larvik.kommune.no",
+    url: "https://www.larvik.kommune.no",
   },
   {
     id: "3806",
@@ -974,12 +974,12 @@ const municipalities: Municipality[] = [
   {
     id: "3807",
     name: "Skien",
-    url: "https://skien.kommune.no",
+    url: "https://www.skien.kommune.no",
   },
   {
     id: "3808",
     name: "Notodden",
-    url: "https://notodden.kommune.no",
+    url: "https://www.notodden.kommune.no",
   },
   {
     id: "3811",
@@ -989,7 +989,7 @@ const municipalities: Municipality[] = [
   {
     id: "3812",
     name: "Siljan",
-    url: "https://siljan.kommune.no",
+    url: "https://www.siljan.kommune.no",
   },
   {
     id: "3813",
@@ -999,17 +999,17 @@ const municipalities: Municipality[] = [
   {
     id: "3814",
     name: "Kragerø",
-    url: "https://kragero.kommune.no",
+    url: "https://www.kragero.kommune.no",
   },
   {
     id: "3815",
     name: "Drangedal",
-    url: "https://drangedal.kommune.no",
+    url: "https://www.drangedal.kommune.no",
   },
   {
     id: "3816",
     name: "Nome",
-    url: "https://nome.kommune.no",
+    url: "https://www.nome.kommune.no",
   },
   {
     id: "3817",
@@ -1019,57 +1019,57 @@ const municipalities: Municipality[] = [
   {
     id: "3818",
     name: "Tinn",
-    url: "https://tinn.kommune.no",
+    url: "https://www.tinn.kommune.no",
   },
   {
     id: "3819",
     name: "Hjartdal",
-    url: "https://hjartdal.kommune.no",
+    url: "https://www.hjartdal.kommune.no",
   },
   {
     id: "3820",
     name: "Seljord",
-    url: "https://seljord.kommune.no",
+    url: "https://www.seljord.kommune.no",
   },
   {
     id: "3821",
     name: "Kviteseid",
-    url: "https://kviteseid.kommune.no",
+    url: "https://www.kviteseid.kommune.no",
   },
   {
     id: "3822",
     name: "Nissedal",
-    url: "https://nissedal.kommune.no",
+    url: "https://www.nissedal.kommune.no",
   },
   {
     id: "3823",
     name: "Fyresdal",
-    url: "https://fyresdal.kommune.no",
+    url: "https://www.fyresdal.kommune.no",
   },
   {
     id: "3824",
     name: "Tokke",
-    url: "https://tokke.kommune.no",
+    url: "https://www.tokke.kommune.no",
   },
   {
     id: "3825",
     name: "Vinje",
-    url: "https://vinje.kommune.no",
+    url: "https://www.vinje.kommune.no",
   },
   {
     id: "4201",
     name: "Risør",
-    url: "https://risor.kommune.no",
+    url: "https://www.risor.kommune.no",
   },
   {
     id: "4202",
     name: "Grimstad",
-    url: "https://grimstad.kommune.no",
+    url: "https://www.grimstad.kommune.no",
   },
   {
     id: "4203",
     name: "Arendal",
-    url: "https://arendal.kommune.no",
+    url: "https://www.arendal.kommune.no",
   },
   {
     id: "4204",
@@ -1079,52 +1079,52 @@ const municipalities: Municipality[] = [
   {
     id: "4205",
     name: "Lindesnes",
-    url: "https://lindesnes.kommune.no",
+    url: "https://www.lindesnes.kommune.no",
   },
   {
     id: "4206",
     name: "Farsund",
-    url: "https://farsund.kommune.no",
+    url: "https://www.farsund.kommune.no",
   },
   {
     id: "4207",
     name: "Flekkefjord",
-    url: "https://flekkefjord.kommune.no",
+    url: "https://www.flekkefjord.kommune.no",
   },
   {
     id: "4211",
     name: "Gjerstad",
-    url: "https://gjerstad.kommune.no",
+    url: "https://www.gjerstad.kommune.no",
   },
   {
     id: "4212",
     name: "Vegårshei",
-    url: "https://vegarshei.kommune.no",
+    url: "https://www.vegarshei.kommune.no",
   },
   {
     id: "4213",
     name: "Tvedestrand",
-    url: "https://tvedestrand.kommune.no",
+    url: "https://www.tvedestrand.kommune.no",
   },
   {
     id: "4214",
     name: "Froland",
-    url: "https://froland.kommune.no",
+    url: "https://www.froland.kommune.no",
   },
   {
     id: "4215",
     name: "Lillesand",
-    url: "https://lillesand.kommune.no",
+    url: "https://www.lillesand.kommune.no",
   },
   {
     id: "4216",
     name: "Birkenes",
-    url: "https://birkenes.kommune.no",
+    url: "https://www.birkenes.kommune.no",
   },
   {
     id: "4217",
     name: "Åmli",
-    url: "https://amli.kommune.no",
+    url: "https://www.amli.kommune.no",
   },
   {
     id: "4218",
@@ -1154,32 +1154,32 @@ const municipalities: Municipality[] = [
   {
     id: "4223",
     name: "Vennesla",
-    url: "https://vennesla.kommune.no",
+    url: "https://www.vennesla.kommune.no",
   },
   {
     id: "4224",
     name: "Åseral",
-    url: "https://aseral.kommune.no",
+    url: "https://www.aseral.kommune.no",
   },
   {
     id: "4225",
     name: "Lyngdal",
-    url: "https://lyngdal.kommune.no",
+    url: "https://www.lyngdal.kommune.no",
   },
   {
     id: "4226",
     name: "Hægebostad",
-    url: "https://haegebostad.kommune.no",
+    url: "https://www.haegebostad.kommune.no",
   },
   {
     id: "4227",
     name: "Kvinesdal",
-    url: "https://kvinesdal.kommune.no",
+    url: "https://www.kvinesdal.kommune.no",
   },
   {
     id: "4228",
     name: "Sirdal",
-    url: "https://sirdal.kommune.no",
+    url: "https://www.sirdal.kommune.no",
   },
   {
     id: "4601",
@@ -1199,32 +1199,32 @@ const municipalities: Municipality[] = [
   {
     id: "4612",
     name: "Sveio",
-    url: "https://sveio.kommune.no",
+    url: "https://www.sveio.kommune.no",
   },
   {
     id: "4613",
     name: "Bømlo",
-    url: "https://bomlo.kommune.no",
+    url: "https://www.bomlo.kommune.no",
   },
   {
     id: "4614",
     name: "Stord",
-    url: "https://stord.kommune.no",
+    url: "https://www.stord.kommune.no",
   },
   {
     id: "4615",
     name: "Fitjar",
-    url: "https://fitjar.kommune.no",
+    url: "https://www.fitjar.kommune.no",
   },
   {
     id: "4616",
     name: "Tysnes",
-    url: "https://tysnes.kommune.no",
+    url: "https://www.tysnes.kommune.no",
   },
   {
     id: "4617",
     name: "Kvinnherad",
-    url: "https://kvinnherad.kommune.no",
+    url: "https://www.kvinnherad.kommune.no",
   },
   {
     id: "4618",
@@ -1234,7 +1234,7 @@ const municipalities: Municipality[] = [
   {
     id: "4619",
     name: "Eidfjord",
-    url: "https://eidfjord.kommune.no",
+    url: "https://www.eidfjord.kommune.no",
   },
   {
     id: "4620",
@@ -1244,17 +1244,17 @@ const municipalities: Municipality[] = [
   {
     id: "4621",
     name: "Voss",
-    url: "https://voss.kommune.no",
+    url: "https://voss.herad.no",
   },
   {
     id: "4622",
     name: "Kvam",
-    url: "https://www.kvam.kommune.no",
+    url: "https://www.kvam.no",
   },
   {
     id: "4623",
     name: "Samnanger",
-    url: "https://samnanger.kommune.no",
+    url: "https://www.samnanger.kommune.no",
   },
   {
     id: "4624",
@@ -1264,112 +1264,112 @@ const municipalities: Municipality[] = [
   {
     id: "4625",
     name: "Austevoll",
-    url: "https://austevoll.kommune.no",
+    url: "https://www.austevoll.kommune.no",
   },
   {
     id: "4626",
     name: "Øygarden",
-    url: "https://oygarden.kommune.no",
+    url: "https://www.oygarden.kommune.no",
   },
   {
     id: "4627",
     name: "Askøy",
-    url: "https://askoy.kommune.no",
+    url: "https://www.askoy.kommune.no",
   },
   {
     id: "4628",
     name: "Vaksdal",
-    url: "https://vaksdal.kommune.no",
+    url: "https://www.vaksdal.kommune.no",
   },
   {
     id: "4629",
     name: "Modalen",
-    url: "https://modalen.kommune.no",
+    url: "https://www.modalen.kommune.no",
   },
   {
     id: "4630",
     name: "Osterøy",
-    url: "https://osteroy.kommune.no",
+    url: "https://www.osteroy.kommune.no",
   },
   {
     id: "4631",
     name: "Alver",
-    url: "https://alver.kommune.no",
+    url: "https://www.alver.kommune.no",
   },
   {
     id: "4632",
     name: "Austrheim",
-    url: "https://austrheim.kommune.no",
+    url: "https://www.austrheim.kommune.no",
   },
   {
     id: "4633",
     name: "Fedje",
-    url: "https://fedje.kommune.no",
+    url: "https://www.fedje.kommune.no",
   },
   {
     id: "4634",
     name: "Masfjorden",
-    url: "https://masfjorden.kommune.no",
+    url: "https://www.masfjorden.kommune.no",
   },
   {
     id: "4635",
     name: "Gulen",
-    url: "https://gulen.kommune.no",
+    url: "https://www.gulen.kommune.no",
   },
   {
     id: "4636",
     name: "Solund",
-    url: "https://solund.kommune.no",
+    url: "https://www.solund.kommune.no",
   },
   {
     id: "4637",
     name: "Hyllestad",
-    url: "https://hyllestad.kommune.no",
+    url: "https://www.hyllestad.kommune.no",
   },
   {
     id: "4638",
     name: "Høyanger",
-    url: "https://hoyanger.kommune.no",
+    url: "https://www.hoyanger.kommune.no",
   },
   {
     id: "4639",
     name: "Vik",
-    url: "https://vik.kommune.no",
+    url: "https://www.vik.kommune.no",
   },
   {
     id: "4640",
     name: "Sogndal",
-    url: "https://sogndal.kommune.no",
+    url: "https://www.sogndal.kommune.no",
   },
   {
     id: "4641",
     name: "Aurland",
-    url: "https://aurland.kommune.no",
+    url: "https://www.aurland.kommune.no",
   },
   {
     id: "4642",
     name: "Lærdal",
-    url: "https://laerdal.kommune.no",
+    url: "https://www.laerdal.kommune.no",
   },
   {
     id: "4643",
     name: "Årdal",
-    url: "https://ardal.kommune.no",
+    url: "https://www.ardal.kommune.no",
   },
   {
     id: "4644",
     name: "Luster",
-    url: "https://luster.kommune.no",
+    url: "https://www.luster.kommune.no",
   },
   {
     id: "4645",
     name: "Askvoll",
-    url: "https://askvoll.kommune.no",
+    url: "https://www.askvoll.kommune.no",
   },
   {
     id: "4646",
     name: "Fjaler",
-    url: "https://fjaler.kommune.no",
+    url: "https://www.fjaler.kommune.no",
   },
   {
     id: "4647",
@@ -1399,12 +1399,12 @@ const municipalities: Municipality[] = [
   {
     id: "5001",
     name: "Trondheim",
-    url: "https://trondheim.kommune.no",
+    url: "https://www.trondheim.kommune.no",
   },
   {
     id: "5006",
     name: "Steinkjer",
-    url: "https://steinkjer.kommune.no",
+    url: "https://www.steinkjer.kommune.no",
   },
   {
     id: "5007",
@@ -1419,7 +1419,7 @@ const municipalities: Municipality[] = [
   {
     id: "5020",
     name: "Osen",
-    url: "https://osen.kommune.no",
+    url: "https://www.osen.kommune.no",
   },
   {
     id: "5021",
@@ -1429,7 +1429,7 @@ const municipalities: Municipality[] = [
   {
     id: "5022",
     name: "Rennebu",
-    url: "https://rennebu.kommune.no",
+    url: "https://www.rennebu.kommune.no",
   },
   {
     id: "5025",
@@ -1439,22 +1439,22 @@ const municipalities: Municipality[] = [
   {
     id: "5026",
     name: "Holtålen",
-    url: "https://holtalen.kommune.no",
+    url: "https://www.holtalen.kommune.no",
   },
   {
     id: "5027",
     name: "Midtre Gauldal",
-    url: "https://midtre-gauldal.kommune.no",
+    url: "https://www.mgk.no",
   },
   {
     id: "5028",
     name: "Melhus",
-    url: "https://melhus.kommune.no",
+    url: "https://www.melhus.kommune.no",
   },
   {
     id: "5029",
     name: "Skaun",
-    url: "https://skaun.kommune.no",
+    url: "https://www.skaun.kommune.no",
   },
   {
     id: "5031",
@@ -1464,77 +1464,77 @@ const municipalities: Municipality[] = [
   {
     id: "5032",
     name: "Selbu",
-    url: "https://selbu.kommune.no",
+    url: "https://www.selbu.kommune.no",
   },
   {
     id: "5033",
     name: "Tydal",
-    url: "https://tydal.kommune.no",
+    url: "https://www.tydal.kommune.no",
   },
   {
     id: "5034",
     name: "Meråker",
-    url: "https://meraker.kommune.no",
+    url: "https://www.meraker.kommune.no",
   },
   {
     id: "5035",
     name: "Stjørdal",
-    url: "https://stjordal.kommune.no",
+    url: "https://www.stjordal.kommune.no",
   },
   {
     id: "5036",
     name: "Frosta",
-    url: "https://frosta.kommune.no",
+    url: "https://www.frosta.kommune.no",
   },
   {
     id: "5037",
     name: "Levanger",
-    url: "https://levanger.kommune.no",
+    url: "https://www.levanger.kommune.no",
   },
   {
     id: "5038",
     name: "Verdal",
-    url: "https://verdal.kommune.no",
+    url: "https://www.verdal.kommune.no",
   },
   {
     id: "5041",
     name: "Snåase - Snåsa",
-    url: "https://snasa.kommune.no",
+    url: "https://www.snasa.kommune.no",
   },
   {
     id: "5042",
     name: "Lierne",
-    url: "https://lierne.kommune.no",
+    url: "https://www.lierne.kommune.no",
   },
   {
     id: "5043",
     name: "Raarvihke - Røyrvik",
-    url: "https://royrvik.kommune.no",
+    url: "https://www.royrvik.kommune.no",
   },
   {
     id: "5044",
     name: "Namsskogan",
-    url: "https://namsskogan.kommune.no",
+    url: "https://www.namsskogan.kommune.no",
   },
   {
     id: "5045",
     name: "Grong",
-    url: "https://grong.kommune.no",
+    url: "https://www.grong.kommune.no",
   },
   {
     id: "5046",
     name: "Høylandet",
-    url: "https://hoylandet.kommune.no",
+    url: "https://www.hoylandet.kommune.no",
   },
   {
     id: "5047",
     name: "Overhalla",
-    url: "https://overhalla.kommune.no",
+    url: "https://www.overhalla.kommune.no",
   },
   {
     id: "5049",
     name: "Flatanger",
-    url: "https://flatanger.kommune.no",
+    url: "https://www.flatanger.kommune.no",
   },
   {
     id: "5052",
@@ -1544,7 +1544,7 @@ const municipalities: Municipality[] = [
   {
     id: "5053",
     name: "Inderøy",
-    url: "https://inderoy.kommune.no",
+    url: "https://www.inderoy.kommune.no",
   },
   {
     id: "5054",
@@ -1554,37 +1554,37 @@ const municipalities: Municipality[] = [
   {
     id: "5055",
     name: "Heim",
-    url: "https://heim.kommune.no",
+    url: "https://www.heim.kommune.no",
   },
   {
     id: "5056",
     name: "Hitra",
-    url: "https://hitra.kommune.no",
+    url: "https://www.hitra.kommune.no",
   },
   {
     id: "5057",
     name: "Ørland",
-    url: "https://orland.kommune.no",
+    url: "https://www.orland.kommune.no",
   },
   {
     id: "5058",
     name: "Åfjord",
-    url: "https://afjord.kommune.no",
+    url: "https://www.afjord.kommune.no",
   },
   {
     id: "5059",
     name: "Orkland",
-    url: "https://orkland.kommune.no",
+    url: "https://www.orkland.kommune.no",
   },
   {
     id: "5060",
     name: "Nærøysund",
-    url: "https://naroysund.kommune.no",
+    url: "https://www.naroysund.kommune.no",
   },
   {
     id: "5061",
     name: "Rindal",
-    url: "https://rindal.kommune.no",
+    url: "https://www.rindal.kommune.no",
   },
   {
     id: "5401",
@@ -1599,12 +1599,12 @@ const municipalities: Municipality[] = [
   {
     id: "5403",
     name: "Alta",
-    url: "https://alta.kommune.no",
+    url: "https://www.alta.kommune.no",
   },
   {
     id: "5404",
     name: "Vardø",
-    url: "https://vardo.kommune.no",
+    url: "https://www.vardo.kommune.no",
   },
   {
     id: "5405",
@@ -1619,92 +1619,92 @@ const municipalities: Municipality[] = [
   {
     id: "5411",
     name: "Kvæfjord",
-    url: "https://kvafjord.kommune.no",
+    url: "https://www.kvafjord.kommune.no",
   },
   {
     id: "5412",
     name: "Tjeldsund - Dielddanuorri",
-    url: "https://tjeldsund.kommune.no",
+    url: "https://www.tjeldsund.kommune.no",
   },
   {
     id: "5413",
     name: "Ibestad",
-    url: "https://ibestad.kommune.no",
+    url: "https://www.ibestad.kommune.no",
   },
   {
     id: "5414",
     name: "Rivttága - Gratangen",
-    url: "https://gratangen.kommune.no",
+    url: "https://www.gratangen.kommune.no",
   },
   {
     id: "5415",
     name: "Loabák - Lavangen",
-    url: "https://lavangen.kommune.no",
+    url: "https://www.lavangen.kommune.no",
   },
   {
     id: "5416",
     name: "Bardu",
-    url: "https://bardu.kommune.no",
+    url: "https://www.bardu.kommune.no",
   },
   {
     id: "5417",
     name: "Salangen",
-    url: "https://salangen.kommune.no",
+    url: "https://www.salangen.kommune.no",
   },
   {
     id: "5418",
     name: "Målselv",
-    url: "https://malselv.kommune.no",
+    url: "https://www.malselv.kommune.no",
   },
   {
     id: "5419",
     name: "Sørreisa",
-    url: "https://sorreisa.kommune.no",
+    url: "https://www.sorreisa.kommune.no",
   },
   {
     id: "5420",
     name: "Dyrøy",
-    url: "https://dyroy.kommune.no",
+    url: "https://www.dyroy.kommune.no",
   },
   {
     id: "5421",
     name: "Senja",
-    url: "https://senja.kommune.no",
+    url: "https://www.senja.kommune.no",
   },
   {
     id: "5422",
     name: "Balsfjord",
-    url: "https://balsfjord.kommune.no",
+    url: "https://www.balsfjord.kommune.no",
   },
   {
     id: "5423",
     name: "Karlsøy",
-    url: "https://karlsoy.kommune.no",
+    url: "https://www.karlsoy.kommune.no",
   },
   {
     id: "5424",
     name: "Lyngen",
-    url: "https://lyngen.kommune.no",
+    url: "https://www.lyngen.kommune.no",
   },
   {
     id: "5425",
     name: "Storfjord - Omasvuotna - Omasvuono",
-    url: "https://storfjord.kommune.no",
+    url: "https://www.storfjord.kommune.no",
   },
   {
     id: "5426",
     name: "Gáivuotna - Kåfjord - Kaivuono",
-    url: "https://kafjord.kommune.no",
+    url: "https://www.kafjord.kommune.no",
   },
   {
     id: "5427",
     name: "Skjervøy",
-    url: "https://skjervoy.kommune.no",
+    url: "https://www.skjervoy.kommune.no",
   },
   {
     id: "5428",
     name: "Nordreisa - Ráisa - Raisi",
-    url: "https://nordreisa.kommune.no",
+    url: "https://www.nordreisa.kommune.no",
   },
   {
     id: "5429",
@@ -1724,37 +1724,37 @@ const municipalities: Municipality[] = [
   {
     id: "5433",
     name: "Hasvik",
-    url: "https://hasvik.kommune.no",
+    url: "https://www.hasvik.kommune.no",
   },
   {
     id: "5434",
     name: "Måsøy",
-    url: "https://masoy.kommune.no",
+    url: "https://www.masoy.kommune.no",
   },
   {
     id: "5435",
     name: "Nordkapp",
-    url: "https://nordkapp.kommune.no",
+    url: "https://www.nordkapp.kommune.no",
   },
   {
     id: "5436",
     name: "Porsanger - Porsáŋgu - Porsanki",
-    url: "https://porsanger.kommune.no",
+    url: "https://www.porsanger.kommune.no",
   },
   {
     id: "5437",
     name: "Kárášjohka - Karasjok",
-    url: "https://karasjok.kommune.no",
+    url: "https://www.karasjok.kommune.no",
   },
   {
     id: "5438",
     name: "Lebesby",
-    url: "https://lebesby.kommune.no",
+    url: "https://www.lebesby.kommune.no",
   },
   {
     id: "5439",
     name: "Gamvik",
-    url: "https://gamvik.kommune.no",
+    url: "https://www.gamvik.kommune.no",
   },
   {
     id: "5440",
@@ -1764,22 +1764,22 @@ const municipalities: Municipality[] = [
   {
     id: "5441",
     name: "Deatnu - Tana",
-    url: "https://tana.kommune.no",
+    url: "https://www.tana.kommune.no",
   },
   {
     id: "5442",
     name: "Unjárga - Nesseby",
-    url: "https://nesseby.kommune.no",
+    url: "https://www.nesseby.kommune.no",
   },
   {
     id: "5443",
     name: "Båtsfjord",
-    url: "https://batsfjord.kommune.no",
+    url: "https://www.batsfjord.kommune.no",
   },
   {
     id: "5444",
     name: "Sør-Varanger",
-    url: "https://sor-varanger.kommune.no",
+    url: "https://www.sor-varanger.kommune.no",
   },
 ];
 
