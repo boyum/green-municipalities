@@ -201,8 +201,7 @@ function generateTrends() {
   const dataDirectory = "data";
   const dataFiles = readdirSync(dataDirectory);
   const dates = dataFiles
-    .sort()
-    .reverse()
+    .sort((a,b) => b.localeCompare(a))
     .slice(0, numberOfFilesInTrendSet)
     .map(file => file.replace(".json", ""));
 
@@ -214,7 +213,7 @@ function generateTrends() {
       continue;
     }
 
-    /** @type {import('../../types').MunicipalityData[]} */
+    /** @type {import('../../types.js').MunicipalityData[]} */
     const data = JSON.parse(readFileSync(path).toString("utf-8"));
 
     for (const municipalityData of data) {

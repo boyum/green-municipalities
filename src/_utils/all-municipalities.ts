@@ -1,7 +1,6 @@
-// @ts-check
+import type { Municipality } from "../../types.ts";
 
-/** @type {Array<{id: string; name: string; url: string;}>} */
-const municipalities = [
+const municipalities: Municipality[] = [
   {
     id: "301",
     name: "Oslo",

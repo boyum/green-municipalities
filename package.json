@@ -13,15 +13,24 @@
   "license": "Apache 2.0",
   "type": "module",
   "scripts": {
-    "build": "eleventy",
-    "fetch-data": "node src/_utils/storeDataForAllMunicipalities.js",
+    "build": "npm run eleventy",
+    "eleventy": "bun --bun ./node_modules/@11ty/eleventy/cmd.cjs --config eleventy.config.ts",
+    "fetch-data": "bun --bun src/_utils/store-data-for-all-municipalities.ts",
     "format:check": "biome check .",
     "format:fix": "biome check --write .",
-    "start": "eleventy --serve"
+    "postinstall": "bun generate-eleventy-types.ts",
+    "start": "npm run eleventy -- --serve",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.0.0",
     "@biomejs/biome": "^1.9.3",
-    "@types/node": "^22.7.4"
+    "@types/node": "^22.7.4",
+    "bun": "^1.1.29",
+    "execa": "^9.4.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "undici": "^6.19.8"
   }
 }
