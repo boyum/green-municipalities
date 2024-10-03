@@ -29,3 +29,12 @@ export type Municipality = {
 };
 
 export type MunicipalityData = Municipality & CarbonData;
+
+export type Trend = {
+  timestamp: number;
+  value: number;
+};
+
+export type Trends = {
+  [name: string]: Trend[];
+};

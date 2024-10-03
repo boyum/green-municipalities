@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "checkJs": true,
+    "lib": ["ESNext"],
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "module": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true,
+    "target": "ESNext"
+  }
+}

@@ -2,10 +2,11 @@
 
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import allMunicipalities from "./allMunicipalities.js";
-import getCarbonDataForWebsite from "./getCarbonDataForWebsite.js";
+import type { MunicipalityData } from "../../types.js";
+import allMunicipalities from "./all-municipalities.ts";
+import getCarbonDataForWebsite from "./get-carbon-data-for-website.ts";
 
-const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
+const getPath = (isoDate: string) => `data/${isoDate}.json`;
 const getNewestFile = () => {
   const files = readdirSync("data").filter(file => file.endsWith(".json"));
   return files.sort().reverse()[0];
@@ -21,8 +22,12 @@ const fetchDataForAllMunicipalities = async () => {
         const data = await getCarbonDataForWebsite(municipality.url);
         return { ...data, ...municipality };
       } catch (error) {
+        const errorMessage =
+          // @ts-expect-error
+          "message" in error ? error.message : error.toString();
+
         console.error(
-          `Could not load data for ${municipality.name} kommune (${municipality.url}): ${error.message}`,
+          `Could not load data for ${municipality.name} kommune (${municipality.url}): ${errorMessage}`,
         );
 
         return { ...municipality };
@@ -34,12 +39,11 @@ const fetchDataForAllMunicipalities = async () => {
 /**
  * Merge data so that the latest version always contains as much data as possible.
  * If a municipality has no data, it will be fallback to the most recent previous data.
- *
- * @param {import('../../types.js').MunicipalityData[]} newData
- * @param {import('../../types.js').MunicipalityData[]} previousData
- * @returns {import('../../types.js').MunicipalityData[]}
  */
-const mergeMunicipalitiesData = (newData, previousData) => {
+const mergeMunicipalitiesData = (
+  newData: MunicipalityData[],
+  previousData: MunicipalityData[],
+): MunicipalityData[] => {
   return allMunicipalities.map(municipality => {
     const existsInNew = newData.find(
       data => municipality.id === data.id && data.statistics,
@@ -65,8 +69,7 @@ const mergeMunicipalitiesData = (newData, previousData) => {
   });
 };
 
-const getISODate = (/** @type {Date} */ date) =>
-  date.toISOString().split("T")[0];
+const getISODate = (date: Date) => date.toISOString().split("T")[0];
 
 const run = async () => {
   const today = new Date();
