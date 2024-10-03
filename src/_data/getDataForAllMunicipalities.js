@@ -1,5 +1,5 @@
 // @ts-check
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { existsSync, promises, readFileSync, readdirSync } from "node:fs";
 
 const today = new Date().toISOString().split("T")[0];
 const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
@@ -15,7 +15,7 @@ const getLatestDate = () => {
 const latestDate = getLatestDate();
 
 export default async function getDataForAllMunicipalities() {
-  const trends = generateTrends();
+  const trends = await generateTrends();
 
   const globalMin = 0;
   let globalMax = 0;
@@ -28,7 +28,7 @@ export default async function getDataForAllMunicipalities() {
       }
     });
 
-  /** @type {import('../../types').MunicipalityData[]} */
+  /** @type {import('../../types.js').MunicipalityData[]} */
   const data = existsSync(path)
     ? JSON.parse(readFileSync(path).toString("utf-8"))
     : JSON.parse(readFileSync(getPath(latestDate)).toString("utf-8"));
@@ -187,12 +187,9 @@ function createPathD(numbers, scalingFactorX, scalingFactorY) {
  * Stores the data in the trends array on the format:
  * { [municipalityName: string]: { timestamp: number; value: number; }[] }
  *
- * @returns {{ [municipalityName: string]: { timestamp: number; value: number; }[] }}
+ * @returns {Promise<import('../../types.js').Trends>}
  */
-function generateTrends() {
-  /** @type {{ [municipalityName: string]: { timestamp: number; value: number; }[] }} */
-  const trends = {};
-
+async function generateTrends() {
   // Up until December 26 2023, data was generated every day.
   // Between December 26 2023 and September 30 2024, no data was generated.
   // After October 2 2024, data is generated every Monday.
@@ -201,32 +198,40 @@ function generateTrends() {
   const dataDirectory = "data";
   const dataFiles = readdirSync(dataDirectory);
   const dates = dataFiles
-    .sort((a,b) => b.localeCompare(a))
+    .sort((a, b) => b.localeCompare(a))
     .slice(0, numberOfFilesInTrendSet)
     .map(file => file.replace(".json", ""));
 
-  for (const dateStr of dates) {
-    const date = new Date(dateStr);
-    const path = getPath(dateStr);
-    const dataExistsForSpecifiedDate = existsSync(path);
-    if (!dataExistsForSpecifiedDate) {
-      continue;
-    }
-
-    /** @type {import('../../types.js').MunicipalityData[]} */
-    const data = JSON.parse(readFileSync(path).toString("utf-8"));
-
-    for (const municipalityData of data) {
-      if (!trends[municipalityData.name]) {
-        trends[municipalityData.name] = [];
+  /** @type {import('../../types.js').Trends} */
+  const trends = {};
+  await Promise.all(
+    dates.map(async dateStr => {
+      const path = getPath(dateStr);
+      const dataExistsForSpecifiedDate = existsSync(path);
+      if (!dataExistsForSpecifiedDate) {
+        return;
       }
 
-      trends[municipalityData.name].push({
-        timestamp: date.getTime(),
-        value: municipalityData.statistics?.co2.renewable.grams ?? 0,
-      });
-    }
-  }
+      const { readFile } = promises;
+      /** @type {import('../../types.js').MunicipalityData[]} */
+      const data = JSON.parse(
+        await readFile(path).then(buffer => buffer.toString("utf-8")),
+      );
+
+      const date = new Date(dateStr);
+
+      for (const municipalityData of data) {
+        if (!trends[municipalityData.name]) {
+          trends[municipalityData.name] = [];
+        }
+
+        trends[municipalityData.name].push({
+          timestamp: date.getTime(),
+          value: municipalityData.statistics?.co2.renewable.grams ?? 0,
+        });
+      }
+    }),
+  );
 
   return trends;
 }

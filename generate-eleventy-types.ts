@@ -21,7 +21,7 @@ for (const pkg in Manifest.devDependencies) {
               --moduleResolution nodenext
               --module nodenext
               --target esnext`;
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     } catch (e: any) {
       console.log(e.stdout);
     }

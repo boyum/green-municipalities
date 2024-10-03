@@ -2,9 +2,9 @@
 
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import type { MunicipalityData } from "../../types.js";
 import allMunicipalities from "./all-municipalities.ts";
 import getCarbonDataForWebsite from "./get-carbon-data-for-website.ts";
-import type { MunicipalityData } from "../../types.js";
 
 const getPath = (isoDate: string) => `data/${isoDate}.json`;
 const getNewestFile = () => {

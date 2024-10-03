@@ -12,6 +12,6 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "NodeNext",
     "allowImportingTsExtensions": true,
-    "target": "ESNext",
+    "target": "ESNext"
   }
 }
