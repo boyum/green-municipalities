@@ -24,7 +24,7 @@ jobs:
       - name: Update data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: fetch daily carbon data
+          commit_message: "chore: fetch carbon data"
 
       - name: Deploy
         run: |
