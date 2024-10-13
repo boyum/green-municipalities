@@ -148,7 +148,7 @@ const municipalities: Municipality[] = [
   },
   {
     id: "1515",
-    name: "Herøy",
+    name: "Herøy (Møre og Romsdal)",
     url: "https://www.heroy.kommune.no",
   },
   {
@@ -293,7 +293,7 @@ const municipalities: Municipality[] = [
   },
   {
     id: "1818",
-    name: "Herøy",
+    name: "Herøy (Nordland)",
     url: "https://www.heroy-no.kommune.no",
   },
   {
