@@ -294,7 +294,7 @@ const municipalities: Municipality[] = [
   {
     id: "1818",
     name: "Herøy",
-    url: "https://www.heroy.kommune.no",
+    url: "https://www.heroy-no.kommune.no",
   },
   {
     id: "1820",
