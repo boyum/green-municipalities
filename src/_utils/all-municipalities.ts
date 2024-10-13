@@ -252,6 +252,11 @@ const municipalities: Municipality[] = [
     url: "https://hustadvika.kommune.no",
   },
   {
+    id: "1580",
+    name: "Haram",
+    url: "https://haram.kommune.no",
+  },
+  {
     id: "1804",
     name: "Bodø",
     url: "https://bodo.kommune.no",
