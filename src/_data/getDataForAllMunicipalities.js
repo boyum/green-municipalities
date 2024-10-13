@@ -19,7 +19,8 @@ export default async function getDataForAllMunicipalities() {
 
   const globalMin = 0;
   let globalMax = 0;
-  // biome-ignore lint/complexity/noForEach: <explanation>
+
+  // biome-ignore lint/complexity/noForEach: This is easier to read than a for..of loop
   Object.values(trends)
     .flatMap(municipality => municipality.map(({ value }) => value))
     .forEach(value => {
@@ -42,7 +43,7 @@ export default async function getDataForAllMunicipalities() {
 
       return html`<tr>
         <td>${index + 1}</td>
-        <td><a href="${municipalityData.url}">${municipalityData.name}</a></td>
+        <td><a href="${municipalityData.url}" target="_blank">${municipalityData.name}</a></td>
         <td>
           ${(municipalityData.statistics?.co2.renewable.grams ?? 0).toFixed(2)}g
           / ${(municipalityData.statistics?.co2.grid.grams ?? 0).toFixed(2)}g
