@@ -13,13 +13,13 @@
   "license": "Apache 2.0",
   "type": "module",
   "scripts": {
-    "build": "npm run eleventy",
+    "build": "bun --bun run eleventy",
     "eleventy": "bun --bun ./node_modules/@11ty/eleventy/cmd.cjs --config eleventy.config.ts",
     "fetch-data": "bun --bun src/_utils/store-data-for-all-municipalities.ts",
     "format:check": "biome check .",
     "format:fix": "biome check --write .",
     "postinstall": "bun generate-eleventy-types.ts",
-    "start": "npm run eleventy -- --serve",
+    "start": "bun --bun run eleventy -- --serve",
     "test-municipalities": "bun --bun src/_utils/test-municipalities.ts",
     "typecheck": "tsc --noEmit"
   },
