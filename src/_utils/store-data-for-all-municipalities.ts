@@ -6,7 +6,7 @@ import getCarbonDataForWebsite from "./get-carbon-data-for-website.ts";
 
 const getPath = (isoDate: string) => `data/${isoDate}.json`;
 const getNewestFile = () => {
-  const files = readdirSync("data").filter((file) => file.endsWith(".json"));
+  const files = readdirSync("data").filter(file => file.endsWith(".json"));
   return files.sort().reverse()[0];
 };
 
@@ -57,9 +57,9 @@ const mergeMunicipalitiesData = (
   newData: MunicipalityData[],
   previousData: MunicipalityData[],
 ): MunicipalityData[] => {
-  return allMunicipalities.map((municipality) => {
+  return allMunicipalities.map(municipality => {
     const existsInNew = newData.find(
-      (data) => municipality.id === data.id && data.statistics,
+      data => municipality.id === data.id && data.statistics,
     );
 
     if (existsInNew) {
@@ -69,7 +69,7 @@ const mergeMunicipalitiesData = (
     console.info(`Could not find new data for ${municipality.name}`);
 
     const existsInPrevious = previousData.find(
-      (data) => municipality.id === data.id && data.statistics,
+      data => municipality.id === data.id && data.statistics,
     );
 
     if (existsInPrevious) {
