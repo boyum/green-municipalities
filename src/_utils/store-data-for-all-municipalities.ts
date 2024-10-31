@@ -6,19 +6,30 @@ import getCarbonDataForWebsite from "./get-carbon-data-for-website.ts";
 
 const getPath = (isoDate: string) => `data/${isoDate}.json`;
 const getNewestFile = () => {
-  const files = readdirSync("data").filter(file => file.endsWith(".json"));
+  const files = readdirSync("data").filter((file) => file.endsWith(".json"));
   return files.sort().reverse()[0];
 };
 
-/**
- * @returns {Promise<import('../../types.js').MunicipalityData[]>}
- */
-const fetchDataForAllMunicipalities = async () => {
-  return await Promise.all(
-    allMunicipalities.map(async municipality => {
+const fetchDataForAllMunicipalities = async (): Promise<MunicipalityData[]> => {
+  console.time("store-data-for-all-municipalities");
+  console.log("\n");
+
+  const municipalities = await Promise.all(
+    allMunicipalities.map(async (municipality): Promise<MunicipalityData> => {
+      // TODO: Check if Kristiansand, Vadsø and Berlevåg finally works
+      if (["Kristiansand", "Vadsø", "Berlevåg"].includes(municipality.name)) {
+        console.info(
+          `Skipping ${municipality.name} kommune (${municipality.url})`,
+        );
+        return { ...municipality };
+      }
+
       try {
         const data = await getCarbonDataForWebsite(municipality.url);
-        return { ...data, ...municipality };
+        return {
+          ...data,
+          ...municipality,
+        };
       } catch (error) {
         const errorMessage =
           // @ts-expect-error
@@ -32,6 +43,10 @@ const fetchDataForAllMunicipalities = async () => {
       }
     }),
   );
+
+  console.timeEnd("store-data-for-all-municipalities");
+
+  return municipalities;
 };
 
 /**
@@ -42,9 +57,9 @@ const mergeMunicipalitiesData = (
   newData: MunicipalityData[],
   previousData: MunicipalityData[],
 ): MunicipalityData[] => {
-  return allMunicipalities.map(municipality => {
+  return allMunicipalities.map((municipality) => {
     const existsInNew = newData.find(
-      data => municipality.id === data.id && data.statistics,
+      (data) => municipality.id === data.id && data.statistics,
     );
 
     if (existsInNew) {
@@ -54,7 +69,7 @@ const mergeMunicipalitiesData = (
     console.info(`Could not find new data for ${municipality.name}`);
 
     const existsInPrevious = previousData.find(
-      data => municipality.id === data.id && data.statistics,
+      (data) => municipality.id === data.id && data.statistics,
     );
 
     if (existsInPrevious) {
