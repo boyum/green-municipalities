@@ -10,15 +10,26 @@ const getNewestFile = () => {
   return files.sort().reverse()[0];
 };
 
-/**
- * @returns {Promise<import('../../types.js').MunicipalityData[]>}
- */
-const fetchDataForAllMunicipalities = async () => {
-  return await Promise.all(
-    allMunicipalities.map(async municipality => {
+const fetchDataForAllMunicipalities = async (): Promise<MunicipalityData[]> => {
+  console.time("store-data-for-all-municipalities");
+  console.log("\n");
+
+  const municipalities = await Promise.all(
+    allMunicipalities.map(async (municipality): Promise<MunicipalityData> => {
+      // TODO: Check if Kristiansand, Vadsø and Berlevåg finally works
+      if (["Kristiansand", "Vadsø", "Berlevåg"].includes(municipality.name)) {
+        console.info(
+          `Skipping ${municipality.name} kommune (${municipality.url})`,
+        );
+        return { ...municipality };
+      }
+
       try {
         const data = await getCarbonDataForWebsite(municipality.url);
-        return { ...data, ...municipality };
+        return {
+          ...data,
+          ...municipality,
+        };
       } catch (error) {
         const errorMessage =
           // @ts-expect-error
@@ -32,6 +43,10 @@ const fetchDataForAllMunicipalities = async () => {
       }
     }),
   );
+
+  console.timeEnd("store-data-for-all-municipalities");
+
+  return municipalities;
 };
 
 /**
