@@ -27,7 +27,7 @@
     "@11ty/eleventy": "3.0.0",
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.9.3",
-    "bun": "^1.1.36",
+    "bun": "^1.1.37",
     "execa": "^9.5.1",
     "typescript": "^5.7.2"
   }
