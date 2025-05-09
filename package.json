@@ -28,7 +28,7 @@
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.14.0",
     "bun": "^1.2.11",
-    "execa": "^9.5.2",
+    "execa": "^9.5.3",
     "typescript": "^5.8.3"
   }
 }
