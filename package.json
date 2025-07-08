@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.2",
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.1.0",
     "@types/node": "^22.14.0",
     "bun": "^1.2.18",
     "execa": "^9.6.0",
