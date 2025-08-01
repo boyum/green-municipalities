@@ -29,6 +29,6 @@
     "@types/node": "^22.14.0",
     "bun": "^1.2.19",
     "execa": "^9.6.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
