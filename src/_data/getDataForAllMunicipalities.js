@@ -1,5 +1,5 @@
 // @ts-check
-import { existsSync, promises, readFileSync, readdirSync } from "node:fs";
+import { existsSync, promises, readdirSync, readFileSync } from "node:fs";
 
 const today = new Date().toISOString().split("T")[0];
 const getPath = (/** @type {string} */ isoDate) => `data/${isoDate}.json`;
@@ -8,7 +8,7 @@ const path = getPath(today);
 const html = String.raw;
 
 const getLatestDate = () => {
-  const files = readdirSync("data").filter(file => file.endsWith(".json"));
+  const files = readdirSync("data").filter((file) => file.endsWith(".json"));
   return files.sort().reverse()[0].replace(".json", "");
 };
 
@@ -17,13 +17,11 @@ const latestDate = getLatestDate();
 export default async function getDataForAllMunicipalities() {
   const trends = await generateTrends();
 
-  const globalMin = 0;
   let globalMax = 0;
 
-  // biome-ignore lint/complexity/noForEach: This is easier to read than a for..of loop
   Object.values(trends)
-    .flatMap(municipality => municipality.map(({ value }) => value))
-    .forEach(value => {
+    .flatMap((municipality) => municipality.map(({ value }) => value))
+    .forEach((value) => {
       if (value > globalMax) {
         globalMax = value;
       }
@@ -35,15 +33,19 @@ export default async function getDataForAllMunicipalities() {
     : JSON.parse(readFileSync(getPath(latestDate)).toString("utf-8"));
 
   return data
-    .filter(data => !data.errored)
+    .filter((data) => !data.errored)
     .map((municipalityData, index) => {
       const trend = getTrend(trends, municipalityData.name);
 
-      const lineGraphHtml = createChartString(trend, globalMin, globalMax);
+      const lineGraphHtml = createChartString(trend, globalMax);
 
       return html`<tr>
         <td>${index + 1}</td>
-        <td><a href="${municipalityData.url}" target="_blank">${municipalityData.name}</a></td>
+        <td>
+          <a href="${municipalityData.url}" target="_blank"
+            >${municipalityData.name}</a
+          >
+        </td>
         <td>
           ${(municipalityData.statistics?.co2.renewable.grams ?? 0).toFixed(2)}g
           / ${(municipalityData.statistics?.co2.grid.grams ?? 0).toFixed(2)}g
@@ -73,7 +75,7 @@ function medianEvery(numbers, n) {
     groups.push(numbers.splice(0, n));
   }
 
-  return groups.map(group => {
+  return groups.map((group) => {
     const sortedGroup = group.sort((a, b) => a - b);
     const middle = Math.floor(sortedGroup.length / 2);
 
@@ -99,19 +101,13 @@ function getTrend(trends, name) {
 
 /**
  * @param {Array<number>} numbers
- * @param {number} [globalMin]
  * @param {number} [globalMax]
  */
-function createChartString(numbers, globalMin, globalMax) {
+function createChartString(numbers, globalMax) {
   const width = 600;
   const height = 300;
 
-  const normalizedNumbers = normalizeNumberList(
-    numbers,
-    height,
-    globalMin,
-    globalMax,
-  );
+  const normalizedNumbers = normalizeNumberList(numbers, height, globalMax);
 
   const pathD = createPathD(normalizedNumbers, width, height);
 
@@ -141,22 +137,21 @@ function createChartString(numbers, globalMin, globalMax) {
  *
  * @param {Array<number>} numbers
  * @param {number} scalingFactorY
- * @param {number} [globalMin]
  * @param {number} [globalMax]
  */
-function normalizeNumberList(numbers, scalingFactorY, globalMin, globalMax) {
+function normalizeNumberList(numbers, scalingFactorY, globalMax) {
   const min = Math.min(...numbers);
   const max = globalMax ?? Math.max(...numbers);
   const diff = max - min;
 
   return numbers
-    .map(number => {
+    .map((number) => {
       const normalizedNumber =
         ((number - min) / (diff === 0 ? 1 : diff)) * scalingFactorY;
 
       return normalizedNumber;
     })
-    .filter(number => !Number.isNaN(number));
+    .filter((number) => !Number.isNaN(number));
 }
 
 /**
@@ -201,12 +196,12 @@ async function generateTrends() {
   const dates = dataFiles
     .sort((a, b) => b.localeCompare(a))
     .slice(0, numberOfFilesInTrendSet)
-    .map(file => file.replace(".json", ""));
+    .map((file) => file.replace(".json", ""));
 
   /** @type {import('../../types.js').Trends} */
   const trends = {};
   await Promise.all(
-    dates.map(async dateStr => {
+    dates.map(async (dateStr) => {
       const path = getPath(dateStr);
       const dataExistsForSpecifiedDate = existsSync(path);
       if (!dataExistsForSpecifiedDate) {
@@ -216,7 +211,7 @@ async function generateTrends() {
       const { readFile } = promises;
       /** @type {import('../../types.js').MunicipalityData[]} */
       const data = JSON.parse(
-        await readFile(path).then(buffer => buffer.toString("utf-8")),
+        await readFile(path).then((buffer) => buffer.toString("utf-8")),
       );
 
       const date = new Date(dateStr);
