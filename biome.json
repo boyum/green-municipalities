@@ -1,7 +1,13 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.1.4/schema.json",
   "files": {
-    "ignore": ["**/_site", "**/data.json", "**/pico.css", "**/data/*"]
+    "includes": [
+      "**",
+      "!**/_site",
+      "!**/data.json",
+      "!**/pico.css",
+      "!**/data/**/*"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -12,7 +18,7 @@
     "lineWidth": 80,
     "attributePosition": "auto"
   },
-  "organizeImports": { "enabled": true },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": { "enabled": true, "rules": { "recommended": true } },
   "javascript": {
     "formatter": {
@@ -20,7 +26,6 @@
       "quoteProperties": "asNeeded",
       "trailingCommas": "all",
       "semicolons": "always",
-      "arrowParentheses": "asNeeded",
       "bracketSpacing": true,
       "bracketSameLine": false,
       "quoteStyle": "double",

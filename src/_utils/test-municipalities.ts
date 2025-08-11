@@ -9,7 +9,7 @@ const testMunicipalities = async () => {
     status: "success" | "error";
     message: string;
   }[] = await Promise.all(
-    municipalities.map(async municipality => {
+    municipalities.map(async (municipality) => {
       try {
         const response = await fetch(municipality.url);
         if (response.status === 200 && !response.redirected) {
@@ -33,12 +33,14 @@ const testMunicipalities = async () => {
           status: "error",
           message: response.status.toString(),
         };
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-      } catch (error: any) {
+      } catch (error: unknown) {
         return {
           name: municipality.name,
           status: "error",
-          message: error.message || error,
+          message:
+            typeof error === "object" && error !== null && "message" in error
+              ? String((error as { message?: unknown }).message)
+              : String(error),
         };
       }
     }),
@@ -49,11 +51,10 @@ const testMunicipalities = async () => {
 
 const main = async () => {
   // Failing municipalities
-  // biome-ignore lint/complexity/noForEach: It's cleaner to use forEach here
   (await testMunicipalities())
-    .filter(municipality => municipality.status === "error")
+    .filter((municipality) => municipality.status === "error")
     .sort((a, b) => a.message.localeCompare(b.message))
-    .forEach(municipality => {
+    .forEach((municipality) => {
       console.warn(`${municipality.name}: ${municipality.message}`);
     });
 };

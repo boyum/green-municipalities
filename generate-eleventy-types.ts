@@ -21,9 +21,12 @@ for (const pkg in Manifest.devDependencies) {
               --moduleResolution nodenext
               --module nodenext
               --target esnext`;
-      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    } catch (e: any) {
-      console.log(e.stdout);
+    } catch (e: unknown) {
+      if (typeof e === "object" && e !== null && "stdout" in e) {
+        console.log(e.stdout);
+      } else {
+        console.log(e);
+      }
     }
     console.log(`Wrote types for ${pkg}`);
   }
