@@ -16,3 +16,16 @@ jobs:
 
       - name: Check format
         run: npm run format:check
+
+  check-types:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Check types
+        run: npm run typecheck
