@@ -1,6 +1,5 @@
-import type { UserConfig } from "@11ty/eleventy";
-
-export default function (eleventyConfig: UserConfig) {
+// biome-ignore lint/suspicious/noExplicitAny: No eleventy types available
+export default function (eleventyConfig: any) {
   eleventyConfig.addPassthroughCopy("src/**/*.css");
 
   return {

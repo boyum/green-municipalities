@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="{{ eleventy.generator }}" />
+    <title>Green municipalities</title>
+    <link rel="stylesheet" href="/pico.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🌱&lt;/text&gt;&lt;/svg&gt;"
+    />
+    <style>
+      /**
+       * {1} Override primary color because the default does not provide
+       *     high enough contrast against a white background.
+       */
+      :root { --primary: #08769b /* {1} */ }
+      a { text-decoration: underline }
+      .container { margin-top: 2rem }
+      .municipality-table { overflow-x: auto }
+      h1 { --typography-spacing-vertical: 2rem }
+      h2 { --typography-spacing-vertical: 1rem }
+      .trend svg { max-width: 50px }
+      @media (min-width: 992px) { .container { max-width: 46.875rem } }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>How green is your municipality's website?</h1>
+
+      <h2>What?</h2>
+      <p>
+        The Green municipalities project aims to show how a website's size in
+        kilobytes and megabytes affects its carbon footprint. We want to show
+        how many
+        <a href="https://stats.oecd.org/glossary/detail.asp?ID=285"
+          >carbon dioxide equivalents</a
+        >
+        are emitted by opening each of the Norwegian municipalities' websites,
+        and we want to offer tips and tricks for decreasing the emissions each
+        visitor produces.
+      </p>
+
+      <h2>How?</h2>
+      <p>
+        The numbers on this page are calculated by
+        <a href="https://websitecarbon.com/">Website Carbon</a>'s
+        <a href="https://api.websitecarbon.com/">API</a>. One can read more
+        about how they calculate emissions on their website, but in short, they
+        find the size of the frontpage in kilobytes and megabytes, and calculate
+        how much power is spent when that amount of bytes is downloaded to the
+        visitor's computer. As can be seen below, each page view does not emit
+        very many grams of CO<sub>2</sub>, however these websites only get a tiny portion
+        of the page views of the world, so it definitely adds up.
+      </p>
+      <blockquote>
+        The average web page tested produces 1.76 grams CO<sub>2</sub> per page view. For a
+        website with 10,000 monthly page views, that's 211 kg CO<sub>2</sub> per year.
+      </blockquote>
+      <cite>— Website Carbon</cite>
+
+      <h2>Why?</h2>
+      <p>
+        Norwegian municipalities have been chosen because we think public
+        services should be role models, and because there are more than 300 of
+        them which are highly similar in contents.
+      </p>
+
+      <h2>What helps?</h2>
+      <p>
+        We can optimize images by scaling them down to just as big as we need
+        them, and there are many techniques to make a website's code base
+        smaller.
+      </p>
+
+      <p>
+        Do you see your website on the list and you want to improve? For now,
+        please reach out to us by creating an
+        <a href="https://github.com/boyum/green-municipalities/issues/new"
+          >issue on GitHub</a
+        >, either in English or Norwegian.
+      </p>
+
+      <h2>How can I take part?</h2>
+      <p>
+        This project is still in development and can be followed on
+        <a href="https://github.com/boyum/green-municipalities">GitHub</a>.
+        Contributions are welcome.
+      </p>
+
+      <h2>Stats</h2>
+      <p>
+        <i>
+          The data was last collected {{previousDataDate}}. Statistics for
+          Kristiansand, Vadsø and Berlevåg could not be collected.</i
+        >
+      </p>
+      <div class="municipality-table">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Grams of CO<sub>2</sub> used per page view (renewable / total)</th>
+            <th>Compared to the average of 1.76g per page view</th>
+            <th>Page size</th>
+            <th>Trend</th>
+          </tr>
+          {{getDataForAllMunicipalities}}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
