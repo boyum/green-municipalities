@@ -1,97 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nb">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="{{ eleventy.generator }}" />
-    <title>Green municipalities</title>
-    <link rel="stylesheet" href="pico.css" />
-    <link rel="stylesheet" href="style.css" />
+    <title>Grønne kommuner</title>
+    <link rel="stylesheet" href="/pico.css" />
     <link
       rel="icon"
       href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🌱&lt;/text&gt;&lt;/svg&gt;"
     />
+
+    <style>
+      /**
+       * {1} Override primary color because the default does not provide
+       *     high enough contrast against a white background.
+       */
+      :root { --primary: #08769b /* {1} */ }
+      a { text-decoration: underline }
+      .container { margin-top: 2rem }
+      .municipality-table { overflow-x: auto }
+      h1 { --typography-spacing-vertical: 2rem }
+      h2 { --typography-spacing-vertical: 1rem }
+      .trend svg { max-width: 50px }
+      @media (min-width: 992px) { .container { max-width: 46.875rem } }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h1>How green is your municipality's website?</h1>
+      <h1>Hvor grønn er din kommunes nettside?</h1>
 
-      <h2>What?</h2>
       <p>
-        The Green municipalities project aims to show how a website's size in
-        kilobytes and megabytes affects its carbon footprint. We want to show
-        how many
+        <i><a href="/en">English version</a></i>
+      </p>
+      
+      <h2>Hva?</h2>
+      <p>
+        Prosjektet Grønne kommuner har som mål å vise hvordan en nettsides
+        størrelse i kilobytes og megabytes påvirker karbonfotavtrykket. Vi
+        ønsker å vise hvor mange
         <a href="https://stats.oecd.org/glossary/detail.asp?ID=285"
-          >carbon dioxide equivalents</a
+          >karbondioksidekvivalenter (CO<sub>2</sub>e)</a
         >
-        are emitted by opening each of the Norwegian municipalities' websites,
-        and we want to offer tips and tricks for decreasing the emissions each
-        visitor produces.
+        som slippes ut når man åpner hver av de norske kommunenes nettsider, og
+        vi ønsker å tilby tips og triks for å redusere utslippene hver besøkende
+        produserer.
       </p>
 
-      <h2>How?</h2>
+      <h2>Hvordan?</h2>
       <p>
-        The numbers on this page are calculated by
-        <a href="https://websitecarbon.com/">Website Carbon</a>'s
-        <a href="https://api.websitecarbon.com/">API</a>. One can read more
-        about how they calculate emissions on their website, but in short, they
-        find the size of the frontpage in kilobytes and megabytes, and calculate
-        how much power is spent when that amount of bytes is downloaded to the
-        visitor's computer. As can be seen below, each page view does not emit
-        very many grams of CO₂, however these websites only get a tiny portion
-        of the page views of the world, so it definitely adds up.
+        Tallene på denne siden er beregnet av
+        <a href="https://websitecarbon.com/">Website Carbon</a> sitt
+        <a href="https://api.websitecarbon.com/">API</a>. Man kan lese mer om
+        hvordan de beregner utslipp på deres nettside, men kort fortalt finner
+        de størrelsen på forsiden i kilobytes og megabytes, og regner ut hvor
+        mye strøm som brukes når den mengden bytes lastes ned til den besøkendes
+        datamaskin. I beregningen tar de også hensyn til
+        <em>hvor</em> nettsidens server befinner seg, fordi det spiller en rolle
+        hvordan elektrisiteten de bruker blir produsert. Som du kan se nedenfor,
+        slipper ikke hvert sidebesøk ut veldig mange gram CO<sub>2</sub>, men
+        disse nettsidene får bare en liten del av verdens sidevisninger, så i
+        sum kan vi se at det blir en del.
       </p>
       <blockquote>
-        The average web page tested produces 1.76 grams CO₂ per page view. For a
-        website with 10,000 monthly page views, that's 211 kg CO₂ per year.
+        Den gjennomsnittlige nettsiden som er testet produserer 1,76 gram CO
+        <sub>2</sub> per sidevisning. For en nettside med 10 000 månedlige
+        sidevisninger blir det 211 kg CO<sub>2</sub> per år.
       </blockquote>
       <cite>— Website Carbon</cite>
 
-      <h2>Why?</h2>
+      <h2>Hvorfor?</h2>
       <p>
-        Norwegian municipalities have been chosen because we think public
-        services should be role models, and because there are more than 300 of
-        them which are highly similar in contents.
+        Norske kommuner er valgt fordi vi mener offentlige tjenester bør være
+        forbilder, og fordi det er over 300 av dem som er svært like i innhold.
       </p>
 
-      <h2>What helps?</h2>
+      <h2>Hva hjelper?</h2>
       <p>
-        We can optimize images by scaling them down to just as big as we need
-        them, and there are many techniques to make a website's code base
-        smaller.
+        Vi kan optimalisere bilder ved å skalere dem ned til akkurat så store
+        som vi trenger dem, og det finnes mange teknikker for å gjøre en
+        nettsides kodebase mindre.
       </p>
 
       <p>
-        Do you see your website on the list and you want to improve? For now,
-        please reach out to us by creating an
+        Ser du din nettside på listen og ønsker å forbedre den? Foreløpig, vær
+        så snill å ta kontakt med oss ved å opprette en
         <a href="https://github.com/boyum/green-municipalities/issues/new"
-          >issue on GitHub</a
-        >, either in English or Norwegian.
+          >issue på GitHub</a
+        >, enten på engelsk eller på norsk.
       </p>
 
-      <h2>How can I take part?</h2>
+      <h2>Hvordan kan jeg delta?</h2>
       <p>
-        This project is still in development and can be followed on
+        Dette prosjektet er fortsatt under utvikling og kan følges på
         <a href="https://github.com/boyum/green-municipalities">GitHub</a>.
-        Contributions are welcome.
+        Bidrag er velkomne.
       </p>
 
-      <h2>Stats</h2>
+      <h2>Statistikk</h2>
       <p>
         <i>
-          The data was last collected {{previousDataDate}}. Statistics for
-          Kristiansand, Vadsø and Berlevåg could not be collected.</i
+          Dataene ble sist samlet inn den {{previousDataDateNb}}. Statistikk for
+          Kristiansand, Vadsø og Berlevåg kunne ikke samles inn.</i
         >
       </p>
       <div class="municipality-table">
         <table>
           <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Grams of CO₂ used per page view (renewable / total)</th>
-            <th>Compared to the average of 1.76g per page view</th>
-            <th>Page size</th>
+            <th>Rangering</th>
+            <th>Navn</th>
+            <th>
+              Gram CO<sub>2</sub> brukt per sidevisning (fornybar / totalt)
+            </th>
+            <th>Sammenlignet med gjennomsnittet på 1,76g per sidevisning</th>
+            <th>Sidestørrelse</th>
             <th>Trend</th>
           </tr>
           {{getDataForAllMunicipalities}}

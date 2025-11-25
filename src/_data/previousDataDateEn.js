@@ -2,7 +2,7 @@
 
 import { readdirSync } from "node:fs";
 
-export default function previousDataDate() {
+export default function previousDataDateEn() {
   const dataDirectory = "data";
   const dataFiles = readdirSync(dataDirectory);
   const dataDates = dataFiles.map((file) => file.replace(".json", ""));
