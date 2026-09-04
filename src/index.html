@@ -50,25 +50,27 @@
 
       <h2>Hvordan?</h2>
       <p>
-        Tallene på denne siden er beregnet av
-        <a href="https://websitecarbon.com/">Website Carbon</a> sitt
-        <a href="https://api.websitecarbon.com/">API</a>. Man kan lese mer om
-        hvordan de beregner utslipp på deres nettside, men kort fortalt finner
-        de størrelsen på forsiden i kilobytes og megabytes, og regner ut hvor
-        mye strøm som brukes når den mengden bytes lastes ned til den besøkendes
-        datamaskin. I beregningen tar de også hensyn til
-        <em>hvor</em> nettsidens server befinner seg, fordi det spiller en rolle
-        hvordan elektrisiteten de bruker blir produsert. Som du kan se nedenfor,
-        slipper ikke hvert sidebesøk ut veldig mange gram CO<sub>2</sub>, men
-        disse nettsidene får bare en liten del av verdens sidevisninger, så i
-        sum kan vi se at det blir en del.
+        Tallene på denne siden beregnes ved å laste ned hver kommunes forside og
+        filene siden laster inn (CSS, JavaScript, bilder og lignende) for å
+        måle hvor mange bytes som overføres. Deretter sjekker vi om nettsiden
+        er hostet på fornybar strøm via
+        <a href="https://www.thegreenwebfoundation.org/">The Green Web
+        Foundation</a>, og til slutt estimerer vi CO<sub>2</sub>-utslippet med
+        <a href="https://developers.thegreenwebfoundation.org/co2js/overview/"
+          >Sustainable Web Design-modellen</a
+        >
+        gjennom det åpne biblioteket CO2.js. Som du kan se nedenfor, slipper
+        ikke hvert sidebesøk ut veldig mange gram CO<sub>2</sub>, men disse
+        nettsidene får bare en liten del av verdens sidevisninger, så i sum kan
+        vi se at det blir en del.
       </p>
       <blockquote>
-        Den gjennomsnittlige nettsiden som er testet produserer 1,76 gram CO
-        <sub>2</sub> per sidevisning. For en nettside med 10 000 månedlige
-        sidevisninger blir det 211 kg CO<sub>2</sub> per år.
+        Den gjennomsnittlige nettsiden produserer omtrent 1,76 gram CO
+        <sub>2</sub> per sidevisning ifølge Sustainable Web Design-modellen.
+        For en nettside med 10 000 månedlige sidevisninger blir det 211 kg CO
+        <sub>2</sub> per år.
       </blockquote>
-      <cite>— Website Carbon</cite>
+      <cite>— Sustainable Web Design-modellen</cite>
 
       <h2>Hvorfor?</h2>
       <p>
