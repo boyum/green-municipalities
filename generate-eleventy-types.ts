@@ -2,7 +2,9 @@ import { $ } from "execa";
 
 import Manifest from "./package.json" with { type: "json" };
 
-await $`npx tsc node_modules/@11ty/eleventy/src/UserConfig.js
+await $`bunx tsc node_modules/@11ty/eleventy/src/UserConfig.js
+        --ignoreConfig
+        --types node
         --declaration
         --allowJs
         --emitDeclarationOnly
@@ -14,7 +16,9 @@ for (const pkg in Manifest.devDependencies) {
   if (pkg.startsWith("@11ty")) {
     const spec = import.meta.resolve(pkg).replace("file://", "");
     try {
-      await $`npx tsc ${spec}
+      await $`bunx tsc ${spec}
+              --ignoreConfig
+              --types node
               --declaration
               --allowJs
               --emitDeclarationOnly

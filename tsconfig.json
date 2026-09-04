@@ -13,6 +13,7 @@
     "moduleResolution": "NodeNext",
     "allowImportingTsExtensions": true,
     "target": "ESNext",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node"]
   }
 }

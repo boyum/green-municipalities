@@ -25,10 +25,10 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",
-    "@biomejs/biome": "^2.5.11",
-    "@types/node": "^22.14.0",
-    "bun": "^1.4.0",
+    "@biomejs/biome": "^2.5.12",
+    "@types/node": "^26.4.1",
+    "bun": "^1.4.1",
     "execa": "^10.0.1",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   }
 }
